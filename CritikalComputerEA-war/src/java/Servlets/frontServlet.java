@@ -7,6 +7,7 @@ package Servlets;
 
 import Controller.controller;
 import Controller.unknownCommand;
+import Singletons.Estadisticas;
 import Singletons.Log;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -58,6 +59,7 @@ public class frontServlet extends HttpServlet {
             Log.guardarExcepcion(e.getMessage()); //Guardar en mi log
         }
         Log.guardarComandos(command);
+        Estadisticas.incrementarRegistroComponentes(command);
         return result;
 
     }

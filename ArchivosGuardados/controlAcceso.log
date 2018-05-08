@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-05-08T12:08:48</date>
+  <millis>1525774128992</millis>
+  <sequence>334</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>97</thread>
+  <message>/CritikalComputerEA-war/</message>
+</record>
+<record>
+  <date>2018-05-08T12:08:54</date>
+  <millis>1525774134662</millis>
+  <sequence>336</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>99</thread>
+  <message>Controller.cuenta.login</message>
+</record>
+<record>
+  <date>2018-05-08T12:08:55</date>
+  <millis>1525774135109</millis>
+  <sequence>338</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>100</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:00</date>
+  <millis>1525774140001</millis>
+  <sequence>340</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>208</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:05</date>
+  <millis>1525774145001</millis>
+  <sequence>342</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>215</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:10</date>
+  <millis>1525774150001</millis>
+  <sequence>344</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>206</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:15</date>
+  <millis>1525774155000</millis>
+  <sequence>346</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>214</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:18</date>
+  <millis>1525774158788</millis>
+  <sequence>348</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Producto1.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:19</date>
+  <millis>1525774159929</millis>
+  <sequence>350</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>98</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:20</date>
+  <millis>1525774160435</millis>
+  <sequence>352</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Producto1.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:23</date>
+  <millis>1525774163195</millis>
+  <sequence>354</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>99</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:27</date>
+  <millis>1525774167702</millis>
+  <sequence>356</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>98</thread>
+  <message>/CritikalComputerEA-war/VerEstadisticas.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:28</date>
+  <millis>1525774168865</millis>
+  <sequence>358</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>99</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:29</date>
+  <millis>1525774169697</millis>
+  <sequence>360</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>98</thread>
+  <message>/CritikalComputerEA-war/Carrito.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:30</date>
+  <millis>1525774170673</millis>
+  <sequence>362</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>99</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:31</date>
+  <millis>1525774171532</millis>
+  <sequence>364</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>97</thread>
+  <message>/CritikalComputerEA-war/Producto1.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:40</date>
+  <millis>1525774180000</millis>
+  <sequence>366</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>200</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:45</date>
+  <millis>1525774185000</millis>
+  <sequence>368</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>209</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:47</date>
+  <millis>1525774187637</millis>
+  <sequence>370</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>98</thread>
+  <message>Controller.AccionesCarrito.AddProduct</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:47</date>
+  <millis>1525774187652</millis>
+  <sequence>374</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:48</date>
+  <millis>1525774188244</millis>
+  <sequence>376</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>100</thread>
+  <message>/CritikalComputerEA-war/Producto1.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:50</date>
+  <millis>1525774190054</millis>
+  <sequence>378</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>101</thread>
+  <message>Controller.AccionesCarrito.AddProduct</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:50</date>
+  <millis>1525774190066</millis>
+  <sequence>382</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>99</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:51</date>
+  <millis>1525774191300</millis>
+  <sequence>384</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>97</thread>
+  <message>/CritikalComputerEA-war/Producto1.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:52</date>
+  <millis>1525774192383</millis>
+  <sequence>386</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>100</thread>
+  <message>Controller.AccionesCarrito.AddProduct</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:52</date>
+  <millis>1525774192392</millis>
+  <sequence>390</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>98</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:53</date>
+  <millis>1525774193416</millis>
+  <sequence>392</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Carrito.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:09:56</date>
+  <millis>1525774196348</millis>
+  <sequence>394</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>97</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:03</date>
+  <millis>1525774203572</millis>
+  <sequence>396</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>97</thread>
+  <message>/CritikalComputerEA-war/</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:06</date>
+  <millis>1525774206818</millis>
+  <sequence>398</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>98</thread>
+  <message>Controller.cuenta.login</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:06</date>
+  <millis>1525774206828</millis>
+  <sequence>400</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:08</date>
+  <millis>1525774208482</millis>
+  <sequence>402</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>100</thread>
+  <message>/CritikalComputerEA-war/Producto1.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:09</date>
+  <millis>1525774209741</millis>
+  <sequence>404</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>101</thread>
+  <message>Controller.AccionesCarrito.AddProduct</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:09</date>
+  <millis>1525774209752</millis>
+  <sequence>408</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>99</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:10</date>
+  <millis>1525774210154</millis>
+  <sequence>410</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>97</thread>
+  <message>/CritikalComputerEA-war/Producto1.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:10</date>
+  <millis>1525774210784</millis>
+  <sequence>412</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>100</thread>
+  <message>Controller.AccionesCarrito.AddProduct</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:10</date>
+  <millis>1525774210794</millis>
+  <sequence>416</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>98</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:12</date>
+  <millis>1525774212311</millis>
+  <sequence>418</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Producto3.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:12</date>
+  <millis>1525774212958</millis>
+  <sequence>420</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>99</thread>
+  <message>Controller.AccionesCarrito.AddProduct</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:12</date>
+  <millis>1525774212968</millis>
+  <sequence>424</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>97</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:14</date>
+  <millis>1525774214022</millis>
+  <sequence>426</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>100</thread>
+  <message>/CritikalComputerEA-war/Carrito.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:15</date>
+  <millis>1525774215238</millis>
+  <sequence>428</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:16</date>
+  <millis>1525774216281</millis>
+  <sequence>430</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>99</thread>
+  <message>/CritikalComputerEA-war/Producto2.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:17</date>
+  <millis>1525774217367</millis>
+  <sequence>432</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>98</thread>
+  <message>Controller.AccionesCarrito.AddProduct</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:17</date>
+  <millis>1525774217377</millis>
+  <sequence>436</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:18</date>
+  <millis>1525774218121</millis>
+  <sequence>438</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>99</thread>
+  <message>/CritikalComputerEA-war/Carrito.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:20</date>
+  <millis>1525774220467</millis>
+  <sequence>440</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>100</thread>
+  <message>Controller.AccionesCarrito.EliminarTodo</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:20</date>
+  <millis>1525774220474</millis>
+  <sequence>442</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>98</thread>
+  <message>/CritikalComputerEA-war/Carrito.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:22</date>
+  <millis>1525774222256</millis>
+  <sequence>444</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>101</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:30</date>
+  <millis>1525774230001</millis>
+  <sequence>446</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>203</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:35</date>
+  <millis>1525774235000</millis>
+  <sequence>448</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>211</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:40</date>
+  <millis>1525774240001</millis>
+  <sequence>450</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>204</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:45</date>
+  <millis>1525774245000</millis>
+  <sequence>452</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>212</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:50</date>
+  <millis>1525774250000</millis>
+  <sequence>454</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>216</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:10:55</date>
+  <millis>1525774255001</millis>
+  <sequence>462</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>210</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:11:00</date>
+  <millis>1525774260000</millis>
+  <sequence>464</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>200</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:11:05</date>
+  <millis>1525774265001</millis>
+  <sequence>466</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>209</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:11:10</date>
+  <millis>1525774270000</millis>
+  <sequence>468</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>213</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:11:15</date>
+  <millis>1525774275001</millis>
+  <sequence>470</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>207</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:11:20</date>
+  <millis>1525774280001</millis>
+  <sequence>472</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>211</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-08T12:11:25</date>
+  <millis>1525774285000</millis>
+  <sequence>474</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>216</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+</log>

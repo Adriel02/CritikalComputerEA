@@ -8,7 +8,7 @@ package Controller.AccionesCarrito;
 
 import Singletons.Log;
 import Stateful.Carrito;
-import Stateless.Producto;
+import Stateful.Producto;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -70,10 +70,10 @@ public class EliminarProducto extends Controller.controller {
         }
     }
 
-    private Producto lookupProductoBean() {
+    private Stateful.Producto lookupProductoBean() {
         try {
             Context c = new InitialContext();
-            return (Producto) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Producto!Stateless.Producto");
+            return (Stateful.Producto) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Producto!Stateful.Producto");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

@@ -16,22 +16,18 @@ import javax.ejb.LocalBean;
  */
 @Stateful
 @LocalBean
-public class Carrito {
-
-    public Carrito() {
-        this.carrito = new HashMap<>();
+public class Compra {
+    public Compra() {
+        this.compra = new HashMap<>();
     }
-    private HashMap<Producto, Integer> carrito;
-    private final String nombre="Carrito";
-    
-    
+    private HashMap<Producto, Integer> compra;
+    private final String nombre = "CompraHecha";
 
-    public HashMap<Producto, Integer> getCarrito() {
-        return carrito;
+    public HashMap<Producto, Integer> getCompra() {
+        return compra;
     }
 
-    public void setCarrito(HashMap<Producto, Integer> carrito) {
-        this.carrito = carrito;
+    public void setCompra(HashMap<Producto, Integer> compra) {
+        this.compra = compra;
     }
-    
 }

@@ -88,13 +88,13 @@ public class Estadisticas {
     @Schedule(hour = "*",minute = "*",second = "*/5")
     public  void guardarEnDisco() throws IOException{
         FileWriter salida= new FileWriter(rutaArchivo);
-        GsonBuilder builder=new GsonBuilder();
-        builder.excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT);
-        Gson guardarEnDisco= builder.create();
-        try (Writer writer= salida) {
-            guardarEnDisco.toJson(this,writer);
-        } catch (Exception e) {
-        }
+//        GsonBuilder builder=new GsonBuilder();
+//        builder.excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT);
+//        Gson guardarEnDisco= builder.create();
+//        try (Writer writer= salida) {
+//            guardarEnDisco.toJson(this,writer);
+//        } catch (Exception e) {
+//        }
         salida.write(rutaArchivo);
     }
     

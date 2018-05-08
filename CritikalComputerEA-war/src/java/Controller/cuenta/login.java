@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package Controller.cuenta;
+
 import Singletons.Estadisticas;
 import Singletons.Log;
+import Stateful.Compra;
 import Stateful.Usuario;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,11 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Adriel
  */
-public class login extends Controller.controller{
-
-    Stateful.Carrito carrito = lookupCarritoBean();
-
-    Usuario usuario = lookupUsuarioBean();
+public class login extends Controller.controller {
 
     Log log = lookupLogBean();
 
@@ -33,11 +31,15 @@ public class login extends Controller.controller{
 
     @Override
     public void process() {
-        HttpSession session= request.getSession(true);
+        HttpSession session = request.getSession(true);
+        Compra compra = lookupCompraBean();
+        Stateful.Carrito carrito = lookupCarritoBean();
+        Usuario usuario = lookupUsuarioBean();
         usuario.setNombre(request.getParameter("nombre"));
         usuario.setContraseña(request.getParameter("pass"));
         session.setAttribute("Usuario", usuario);
         session.setAttribute("Carrito", carrito);
+        session.setAttribute("Compra", compra);
         Estadisticas.incrementarLogin();
         try {
             redirect("/CritikalComputerEA-war/Tienda.jsp");
@@ -90,5 +92,15 @@ public class login extends Controller.controller{
             throw new RuntimeException(ne);
         }
     }
-    
+
+    private Compra lookupCompraBean() {
+        try {
+            Context c = new InitialContext();
+            return (Compra) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Compra!Stateful.Compra");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
 }

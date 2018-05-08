@@ -10,9 +10,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="Recursos/FondoCss.css">
+        <link rel="stylesheet" href="Recursos/newcss.css">
+        <link rel="stylesheet" href="Recursos/footer.css">
+
+        <title>Critikal Computer</title>
     </head>
     <body>
-        <%= Log.leerLog() %>
+        <a href="/CritikalComputerEA-war/Tienda.jsp" href="#" class="myButton" id="izquierda">Tienda</a><br>
+            
+        <%= Log.leerLog()%>
     </body>
 </html>

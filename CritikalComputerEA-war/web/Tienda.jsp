@@ -26,6 +26,10 @@
             </div>
         </form>
         <a href="/CritikalComputerEA-war/Carrito.jsp" href="#" class="myButton" id="izquierda">Ver Carrito</a>
+        <a href="/CritikalComputerEA-war/Log.jsp" href="#" class="myButton" id="izquierda">Log</a>
+        <a href="/CritikalComputerEA-war/VerEstadisticas.jsp" href="#" class="myButton" id="izquierda">Ver Estadisticas</a>
+        <a href="/CritikalComputerEA-war/CompraHecha.jsp" href="#" class="myButton" id="izquierda">Mi Compra</a>
+        
         <%}%>
         <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
         <%= ((Usuario)session.getAttribute("Usuario")).getNombre() %>

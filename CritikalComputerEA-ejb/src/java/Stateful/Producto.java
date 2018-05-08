@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Stateless;
+package Stateful;
 
-import javax.ejb.Stateless;
+import Stateless.Oferta;
+import Stateless.Proveedor;
+import javax.ejb.Stateful;
 import javax.ejb.LocalBean;
 
 /**
  *
  * @author Adriel
  */
-@Stateless
+@Stateful
 @LocalBean
 public class Producto {
     private String nombre;
@@ -29,7 +31,6 @@ public class Producto {
     public void setOferta(Oferta oferta) {
         this.oferta = oferta;
     }
-    
 
     public Proveedor getProveedor() {
         return proveedor;
@@ -70,5 +71,4 @@ public class Producto {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-        
 }

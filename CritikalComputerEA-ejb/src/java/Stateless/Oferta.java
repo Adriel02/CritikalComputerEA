@@ -5,6 +5,7 @@
  */
 package Stateless;
 
+import Stateful.Producto;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 

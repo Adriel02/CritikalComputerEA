@@ -26,7 +26,7 @@
             </div>
         </form> 
         <form action="/CritikalComputerEA-war/Registro.jsp">
-            <button type="submit" class="myButton">Registrate aqui</button>
+            <button type="hidden" class="myButton">Registrate aqui</button>
         </form>
         <%@include file="WEB-INF/Parciales/Cabecera.jsp" %>
 
