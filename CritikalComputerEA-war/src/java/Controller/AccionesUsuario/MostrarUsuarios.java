@@ -5,6 +5,7 @@
  */
 package Controller.AccionesUsuario;
 
+import Singletons.Log;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,19 +26,22 @@ import operaciones.UsuariosFacade;
  *
  * @author Adriel
  */
-public class MostrarUsuarios extends Controller.controller{
+public class MostrarUsuarios extends Controller.controller {
 
     UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
+
     @Override
     public void process() {
-        List<Usuarios> usuarios=  usuariosFacade.findAll();
+        List<Usuarios> usuarios = usuariosFacade.findAll();
         request.setAttribute("lista", usuarios);
         try {
             forward("verUsuarios.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(MostrarUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            Log.guardarExcepcion(ex.getMessage());
         } catch (IOException ex) {
             Logger.getLogger(MostrarUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            Log.guardarExcepcion(ex.getMessage());
         }
     }
 

@@ -38,16 +38,16 @@ public class login extends Controller.controller {
     Estadisticas estadisticas = lookupEstadisticasBean();
 
     @Override
-    public void process() {
+    public void process() { //HAY QUE MODIFICAR AQUI
         HttpSession session = request.getSession(true);
         Stateful.Carrito carrito = lookupCarritoBean();
-        usuario.setNombre(request.getParameter("nombre"));
+        /**usuario.setNombre(request.getParameter("nombre"));
         usuario.setContraseña(request.getParameter("pass"));
         session.setAttribute("Usuario", usuario);
-        session.setAttribute("Carrito", carrito);
+        session.setAttribute("Carrito", carrito);**/
         Estadisticas.incrementarLogin();
         System.out.println(request.getParameter("tipo"));
-        try {
+        /*try {
             if (userIsValid()) {
                 if(request.getParameter("tipo").equals("Administrador")){
                 updateSession();
@@ -68,9 +68,9 @@ public class login extends Controller.controller {
             Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
         } catch (SQLException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
-
+/**
     private boolean userIsValid() throws SQLException {
         try {
             ResultSet resultSet = connectAndQuery();
@@ -81,7 +81,7 @@ public class login extends Controller.controller {
         }
 
         return false;
-    }
+    }*/
     public void updateSession() {
         HttpSession session = request.getSession(true);
         Stateful.Carrito carrito = lookupCarritoBean();
@@ -89,7 +89,6 @@ public class login extends Controller.controller {
         
         session.setAttribute("Usuario", usuario);
         session.setAttribute("Carrito", carrito);
-        session.setAttribute("Compra", compra);
         Estadisticas.incrementarLogin();
     }
     

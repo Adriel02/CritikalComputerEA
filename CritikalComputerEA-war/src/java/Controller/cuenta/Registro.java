@@ -33,10 +33,10 @@ public class Registro extends Controller.controller{
     @Override
     public void process() {
         HttpSession session= request.getSession(true);
-        usuario.setNombre(request.getParameter("usuario"));
+        /**usuario.setNombre(request.getParameter("usuario"));
         usuario.setContraseña(request.getParameter("pass"));
         session.setAttribute("Usuario", usuario);
-        session.setAttribute("Carrito", carrito);
+        session.setAttribute("Carrito", carrito);**/
         try {
             redirect("/CritikalComputerEA-war/Tienda.jsp");
         } catch (ServletException ex) {
@@ -58,15 +58,6 @@ public class Registro extends Controller.controller{
         }
     }
 
-    private Usuario lookupUsuarioBean() {
-        try {
-            Context c = new InitialContext();
-            return (Usuario) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Usuario!Stateful.Usuario");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
-    }
 
     private Stateful.Carrito lookupCarritoBean() {
         try {

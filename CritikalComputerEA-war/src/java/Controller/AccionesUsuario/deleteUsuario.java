@@ -5,6 +5,7 @@
  */
 package Controller.AccionesUsuario;
 
+import Singletons.Log;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,21 +29,24 @@ import operaciones.UsuariosFacade;
 public class deleteUsuario extends Controller.controller {
 
     UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
-     @Override
+
+    @Override
     public void process() {
-       int idusuario=Integer.parseInt(request.getParameter("id"));
-       
-       Usuarios usuario= usuariosFacade.find(idusuario);
-       if(usuario!=null){
-           usuariosFacade.remove(usuario);
-           try {
-               forward("principalAdministrador.jsp");
-           } catch (ServletException ex) {
-               Logger.getLogger(deleteUsuario.class.getName()).log(Level.SEVERE, null, ex);
-           } catch (IOException ex) {
-               Logger.getLogger(deleteUsuario.class.getName()).log(Level.SEVERE, null, ex);
-           }
-       }
+        int idusuario = Integer.parseInt(request.getParameter("id"));
+
+        Usuarios usuario = usuariosFacade.find(idusuario);
+        if (usuario != null) {
+            usuariosFacade.remove(usuario);
+            try {
+                forward("principalAdministrador.jsp");
+            } catch (ServletException ex) {
+                Logger.getLogger(deleteUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                Log.guardarExcepcion(ex.getMessage());
+            } catch (IOException ex) {
+                Logger.getLogger(deleteUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                Log.guardarExcepcion(ex.getMessage());
+            }
+        }
     }
 
     private UsuariosFacade lookupUsuariosFacadeBean() {
@@ -55,5 +59,4 @@ public class deleteUsuario extends Controller.controller {
         }
     }
 
-    
 }
