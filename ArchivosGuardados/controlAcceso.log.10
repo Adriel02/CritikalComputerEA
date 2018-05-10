@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2018-05-10T11:06:17</date>
-  <millis>1525943177981</millis>
-  <sequence>226</sequence>
+  <date>2018-05-10T11:34:58</date>
+  <millis>1525944898762</millis>
+  <sequence>1938</sequence>
   <logger>Singletons.Log</logger>
   <level>INFO</level>
   <class>Singletons.Log</class>
@@ -13,46 +13,46 @@
   <message>/CritikalComputerEA-war/</message>
 </record>
 <record>
-  <date>2018-05-10T11:06:21</date>
-  <millis>1525943181201</millis>
-  <sequence>228</sequence>
+  <date>2018-05-10T11:35:02</date>
+  <millis>1525944902487</millis>
+  <sequence>1940</sequence>
   <logger>Singletons.Log</logger>
   <level>INFO</level>
   <class>Singletons.Log</class>
   <method>guardarComandos</method>
-  <thread>108</thread>
+  <thread>109</thread>
   <message>Controller.cuenta.login</message>
 </record>
 <record>
-  <date>2018-05-10T11:06:30</date>
-  <millis>1525943190001</millis>
-  <sequence>232</sequence>
+  <date>2018-05-10T11:35:02</date>
+  <millis>1525944902936</millis>
+  <sequence>1942</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>105</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>
+<record>
+  <date>2018-05-10T11:35:10</date>
+  <millis>1525944910001</millis>
+  <sequence>1944</sequence>
   <logger>Singletons.Log</logger>
   <level>INFO</level>
   <class>Singletons.Log</class>
   <method>actualizarLog</method>
-  <thread>150</thread>
+  <thread>152</thread>
   <message>ESTOY OCIOSO</message>
 </record>
 <record>
-  <date>2018-05-10T11:06:35</date>
-  <millis>1525943195000</millis>
-  <sequence>234</sequence>
+  <date>2018-05-10T11:35:15</date>
+  <millis>1525944915001</millis>
+  <sequence>1946</sequence>
   <logger>Singletons.Log</logger>
   <level>INFO</level>
   <class>Singletons.Log</class>
   <method>actualizarLog</method>
-  <thread>142</thread>
-  <message>ESTOY OCIOSO</message>
-</record>
-<record>
-  <date>2018-05-10T11:06:40</date>
-  <millis>1525943200000</millis>
-  <sequence>236</sequence>
-  <logger>Singletons.Log</logger>
-  <level>INFO</level>
-  <class>Singletons.Log</class>
-  <method>actualizarLog</method>
-  <thread>148</thread>
+  <thread>141</thread>
   <message>ESTOY OCIOSO</message>
 </record>

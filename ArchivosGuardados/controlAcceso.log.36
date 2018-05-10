@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-05-10T12:16:55</date>
+  <millis>1525947415015</millis>
+  <sequence>5614</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>107</thread>
+  <message>/CritikalComputerEA-war/</message>
+</record>
+<record>
+  <date>2018-05-10T12:16:57</date>
+  <millis>1525947417742</millis>
+  <sequence>5616</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>108</thread>
+  <message>Controller.cuenta.login</message>
+</record>
+<record>
+  <date>2018-05-10T12:16:58</date>
+  <millis>1525947418152</millis>
+  <sequence>5622</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>105</thread>
+  <message>/CritikalComputerEA-war/principalAdministrador.jsp</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:04</date>
+  <millis>1525947424565</millis>
+  <sequence>5624</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarComandos</method>
+  <thread>107</thread>
+  <message>Controller.AccionesUsuario.addUsuario</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:04</date>
+  <millis>1525947424581</millis>
+  <sequence>5626</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>107</thread>
+  <message>/CritikalComputerEA-war/principalAdministrador.jsp</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:10</date>
+  <millis>1525947430000</millis>
+  <sequence>5628</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>151</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:15</date>
+  <millis>1525947435000</millis>
+  <sequence>5630</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>149</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:20</date>
+  <millis>1525947440001</millis>
+  <sequence>5632</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>153</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:25</date>
+  <millis>1525947445001</millis>
+  <sequence>5634</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>144</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:30</date>
+  <millis>1525947450000</millis>
+  <sequence>5636</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>146</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:35</date>
+  <millis>1525947455001</millis>
+  <sequence>5638</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>142</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:40</date>
+  <millis>1525947460000</millis>
+  <sequence>5640</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>143</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:45</date>
+  <millis>1525947465000</millis>
+  <sequence>5642</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>141</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:50</date>
+  <millis>1525947470000</millis>
+  <sequence>5644</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>150</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:17:55</date>
+  <millis>1525947475000</millis>
+  <sequence>5646</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>154</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:00</date>
+  <millis>1525947480001</millis>
+  <sequence>5648</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>155</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:05</date>
+  <millis>1525947485001</millis>
+  <sequence>5650</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>153</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:10</date>
+  <millis>1525947490000</millis>
+  <sequence>5652</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>142</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:15</date>
+  <millis>1525947495000</millis>
+  <sequence>5654</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>156</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:20</date>
+  <millis>1525947500000</millis>
+  <sequence>5656</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>147</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:25</date>
+  <millis>1525947505000</millis>
+  <sequence>5658</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>152</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:30</date>
+  <millis>1525947510000</millis>
+  <sequence>5660</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>151</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:35</date>
+  <millis>1525947515001</millis>
+  <sequence>5662</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>155</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:40</date>
+  <millis>1525947520000</millis>
+  <sequence>5664</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>148</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:45</date>
+  <millis>1525947525000</millis>
+  <sequence>5666</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>144</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:50</date>
+  <millis>1525947530000</millis>
+  <sequence>5668</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>146</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:18:55</date>
+  <millis>1525947535000</millis>
+  <sequence>5670</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>145</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:19:05</date>
+  <millis>1525947545001</millis>
+  <sequence>5672</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>151</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:19:10</date>
+  <millis>1525947550000</millis>
+  <sequence>5674</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>155</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T12:19:15</date>
+  <millis>1525947555001</millis>
+  <sequence>5676</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>148</thread>
+  <message>ESTOY OCIOSO</message>
+</record>

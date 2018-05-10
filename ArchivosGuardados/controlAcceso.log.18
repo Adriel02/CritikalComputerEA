@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-05-10T11:40:05</date>
+  <millis>1525945205000</millis>
+  <sequence>2888</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>154</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T11:40:09</date>
+  <millis>1525945209618</millis>
+  <sequence>2894</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>106</thread>
+  <message>/CritikalComputerEA-war/principalAdministrador.jsp</message>
+</record>
+<record>
+  <date>2018-05-10T11:40:15</date>
+  <millis>1525945215000</millis>
+  <sequence>2898</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>actualizarLog</method>
+  <thread>144</thread>
+  <message>ESTOY OCIOSO</message>
+</record>
+<record>
+  <date>2018-05-10T11:40:17</date>
+  <millis>1525945217094</millis>
+  <sequence>2902</sequence>
+  <logger>Singletons.Log</logger>
+  <level>INFO</level>
+  <class>Singletons.Log</class>
+  <method>guardarJSP</method>
+  <thread>109</thread>
+  <message>/CritikalComputerEA-war/Tienda.jsp</message>
+</record>

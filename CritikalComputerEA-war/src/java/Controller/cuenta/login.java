@@ -10,6 +10,12 @@ import Singletons.Log;
 import Stateful.Compra;
 import Stateful.Usuario;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -41,15 +47,64 @@ public class login extends Controller.controller {
         session.setAttribute("Carrito", carrito);
         session.setAttribute("Compra", compra);
         Estadisticas.incrementarLogin();
+        System.out.println(request.getParameter("tipo"));
         try {
-            redirect("/CritikalComputerEA-war/Tienda.jsp");
+            if (userIsValid()) {
+                if(request.getParameter("tipo").equals("Administrador")){
+                updateSession();
+                redirect("/CritikalComputerEA-war/principalAdministrador.jsp");
+                }
+                if(request.getParameter("tipo").equals("Cliente")){
+                updateSession();
+                redirect("/CritikalComputerEA-war/Tienda.jsp");
+                }  
+            }else{
+                redirect("/CritikalComputerEA-war/index.jsp");
+            }
         } catch (ServletException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
         } catch (IOException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private boolean userIsValid() throws SQLException {
+        try {
+            ResultSet resultSet = connectAndQuery();
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+        }
+
+        return false;
+    }
+    public void updateSession() {
+        HttpSession session = request.getSession(true);
+        Usuario usuario = lookupUsuarioBean();
+        Compra compra = lookupCompraBean();
+        Stateful.Carrito carrito = lookupCarritoBean();
+        usuario.setNombre(request.getParameter("nombre"));
+        usuario.setContraseña(request.getParameter("pass"));
+        session.setAttribute("Usuario", usuario);
+        session.setAttribute("Carrito", carrito);
+        session.setAttribute("Compra", compra);
+        Estadisticas.incrementarLogin();
+    }
+    
+    public ResultSet connectAndQuery() throws SQLException {
+        Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/ASBaseDatos", "adriel", "adriel");
+        String query = "select * from USUARIOS where NOMBRE = ? AND CONTRASEÑA = ? AND TIPO = ? ";
+        PreparedStatement statement = con.prepareStatement(query);
+        statement.setString(1, request.getParameter("nombre"));
+        statement.setString(2, request.getParameter("pass"));
+        statement.setString(3, request.getParameter("tipo"));
+        System.out.println(query);
+        return statement.executeQuery();
     }
 
     private Estadisticas lookupEstadisticasBean() {

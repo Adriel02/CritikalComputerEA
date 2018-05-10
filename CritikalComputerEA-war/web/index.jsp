@@ -21,6 +21,10 @@
                 <h1>Login</h1>
                 <input type="text" name="nombre" placeholder="Usuario" required="required" autofocus="" />
                 <input type="password" name="pass" placeholder="Contraseña" required="required" />
+                <select name="tipo" required="required">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Cliente">Cliente</option>
+                </select>
                 <input type="hidden" name="command" value="cuenta.login">
                 <button type="submit" class="btn btn-primary btn-block btn-large" class="myButton">Entrar</button>
             </div>
