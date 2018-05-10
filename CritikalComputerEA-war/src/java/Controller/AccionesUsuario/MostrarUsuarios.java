@@ -11,23 +11,43 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import models.Usuarios;
+import operaciones.UsuariosFacade;
 
 /**
  *
  * @author Adriel
  */
 public class MostrarUsuarios extends Controller.controller{
+
+    UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
     @Override
     public void process() {
+        List<Usuarios> usuarios=  usuariosFacade.findAll();
+        request.setAttribute("lista", usuarios);
         try {
-            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/ASBaseDatos", "adriel", "adriel");
-            PreparedStatement ps = con.prepareStatement("select * from ADRIEL.USUARIOS");
-            ResultSet noRs = ps.executeQuery();
-            request.setAttribute("noRs", noRs);
-            forward("/verUsuarios.jsp");
-        } catch (SQLException | ServletException | IOException ex) {
+            forward("verUsuarios.jsp");
+        } catch (ServletException ex) {
+            Logger.getLogger(MostrarUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MostrarUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+    }
+
+    private UsuariosFacade lookupUsuariosFacadeBean() {
+        try {
+            Context c = new InitialContext();
+            return (UsuariosFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/UsuariosFacade!operaciones.UsuariosFacade");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
     }
 }

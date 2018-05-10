@@ -5,10 +5,10 @@
  */
 package Stateful;
 
-import Stateful.Producto;
 import java.util.HashMap;
 import javax.ejb.Stateful;
 import javax.ejb.LocalBean;
+import models.Producto;
 
 /**
  *

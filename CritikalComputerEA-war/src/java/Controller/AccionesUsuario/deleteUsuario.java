@@ -14,44 +14,46 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import models.Usuarios;
+import operaciones.UsuariosFacade;
 
 /**
  *
  * @author Adriel
  */
 public class deleteUsuario extends Controller.controller {
+
+    UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
      @Override
     public void process() {
+       int idusuario=Integer.parseInt(request.getParameter("id"));
+       
+       Usuarios usuario= usuariosFacade.find(idusuario);
+       if(usuario!=null){
+           usuariosFacade.remove(usuario);
+           try {
+               forward("principalAdministrador.jsp");
+           } catch (ServletException ex) {
+               Logger.getLogger(deleteUsuario.class.getName()).log(Level.SEVERE, null, ex);
+           } catch (IOException ex) {
+               Logger.getLogger(deleteUsuario.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+    }
+
+    private UsuariosFacade lookupUsuariosFacadeBean() {
         try {
-            connectAndQuery();
-            try {
-                forward("/principalAdministrador.jsp");
-            } catch (ServletException ex) {
-            } catch (IOException ex) {
-                Logger.getLogger(deleteUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } catch (SQLException ex) {
+            Context c = new InitialContext();
+            return (UsuariosFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/UsuariosFacade!operaciones.UsuariosFacade");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
         }
     }
 
-    public void connectAndQuery() throws SQLException {
-
-        Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/ASBaseDatos", "adriel", "adriel");
-        String selectQuery = "select * from ADRIEL.USUARIOS";
-        PreparedStatement usuarios = con.prepareStatement(selectQuery);
-        ResultSet rs = usuarios.executeQuery();
-
-        int i = 1;
-        while (rs.next()) {
-            i++;
-        } 
-        try {
-            Statement st = con.createStatement();
-            String query = "delete ADRIEL.USUARIOS where id= ?";
-            System.out.println("QUERY: " + query);
-            st.executeUpdate(query);
-        } catch (SQLException ex) {
-        }
-    }
+    
 }

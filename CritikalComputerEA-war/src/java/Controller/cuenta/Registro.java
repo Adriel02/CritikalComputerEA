@@ -7,7 +7,6 @@ package Controller.cuenta;
 
 
 import Singletons.Log;
-import Stateful.Usuario;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +15,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
+import operaciones.UsuariosFacade;
 
 /**
  *
@@ -23,9 +23,10 @@ import javax.servlet.http.HttpSession;
  */
 public class Registro extends Controller.controller{
 
+    UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
+
     Stateful.Carrito carrito = lookupCarritoBean();
 
-    Usuario usuario = lookupUsuarioBean();
 
     Log log = lookupLogBean();
 
@@ -71,6 +72,16 @@ public class Registro extends Controller.controller{
         try {
             Context c = new InitialContext();
             return (Stateful.Carrito) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Carrito!Stateful.Carrito");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private UsuariosFacade lookupUsuariosFacadeBean() {
+        try {
+            Context c = new InitialContext();
+            return (UsuariosFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/UsuariosFacade!operaciones.UsuariosFacade");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

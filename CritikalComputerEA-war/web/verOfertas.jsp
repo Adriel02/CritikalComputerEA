@@ -1,9 +1,10 @@
 <%-- 
-    Document   : verUsuarios
+    Document   : verOfertas
     Created on : 10-may-2018, 12:25:31
     Author     : Adriel
 --%>
 
+<%@page import="models.Ofertas"%>
 <%@page import="java.util.List"%>
 <%@page import="models.Usuarios"%>
 <%@page import="java.sql.ResultSet"%>
@@ -17,16 +18,14 @@
         <link rel="stylesheet" href="Recursos/loginCss.css">
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
-    <% List<Usuarios>usuarios=(List<Usuarios>)request.getAttribute("lista"); %>
+    <% List<Ofertas>ofertas=(List<Ofertas>)request.getAttribute("listaOfertas"); %>
     <body>
         <table>
-            <tr><th>Nombre</th><th>Apellidos</th><th>Tipo</th><th>Eliminar</th></tr>
-            <% for(int i = 0;i<usuarios.size();i++){%>
-            <td><%= usuarios.get(i).getNombre() %></td>
-            <td><%= usuarios.get(i).getApellidos()%></td>
-            <td><%= usuarios.get(i).getTipo()%></td>
-            <td><a href="/CritikalComputerEA-war/frontServlet?command=deleteUsuario&id=<%=usuarios.get(i).getId()%>">Eliminar</a></td>
+            <tr><th>Nombre</th>><th>Descuento</th><th>Eliminar</th></tr>
+            <% for(int i = 0;i<ofertas.size();i++){%>
+            <td><%= ofertas.get(i).getNombre() %></td>
+            <td><%= ofertas.get(i).getDescuento()%></td>
+            <td><a href="/CritikalComputerEA-war/frontServlet?command=deleteOferta&id=<%=ofertas.get(i).getId()%>">Eliminar</a></td>
             <%}%>
         </table>   
     </body>
-</html>

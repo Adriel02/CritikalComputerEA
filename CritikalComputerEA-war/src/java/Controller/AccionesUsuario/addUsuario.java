@@ -5,6 +5,7 @@
  */
 package Controller.AccionesUsuario;
 
+import Singletons.Log;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +15,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import models.Usuarios;
+import operaciones.UsuariosFacade;
 
 /**
  *
@@ -22,41 +28,35 @@ import javax.servlet.ServletException;
  */
 public class addUsuario extends Controller.controller {
 
+    UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
+
     @Override
     public void process() {
+        Usuarios usuario = new Usuarios();
+        usuario.setNombre(request.getParameter("nombre"));
+        usuario.setApellidos(request.getParameter("apellidos"));
+        usuario.setContraseña(request.getParameter("pass"));
+        usuario.setTipo(request.getParameter("tipo"));
+        usuariosFacade.create(usuario);
         try {
-            connectAndQuery();
-            try {
-                forward("/principalAdministrador.jsp");
-            } catch (ServletException ex) {
-            } catch (IOException ex) {
-                Logger.getLogger(addUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } catch (SQLException ex) {
-            System.out.println("no puedo");
+            forward("principalAdministrador.jsp");
+        } catch (ServletException ex) {
+            Logger.getLogger(addUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Log.guardarExcepcion(ex.getMessage());
+        } catch (IOException ex) {
+            Logger.getLogger(addUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Log.guardarExcepcion(ex.getMessage());
         }
     }
 
-    public void connectAndQuery() throws SQLException {
-
-        Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/ASBaseDatos", "adriel", "adriel");
-        String selectQuery = "select * from ADRIEL.USUARIOS";
-        PreparedStatement usuarios = con.prepareStatement(selectQuery);
-        ResultSet rs = usuarios.executeQuery();
-
-        int i = 1;
-        while (rs.next()) {
-            i++;
-        } 
+    private UsuariosFacade lookupUsuariosFacadeBean() {
         try {
-            Statement st = con.createStatement();
-            String query = "insert into ADRIEL.USUARIOS values("+ i++ +",'"+ request.getParameter("nombre") + "','"
-                    + request.getParameter("apellidos") + "','"
-                    + request.getParameter("pass") + "','"
-                    + request.getParameter("tipo") + "')";
-            System.out.println("QUERY: " + query);
-            st.executeUpdate(query);
-        } catch (SQLException ex) {
+            Context c = new InitialContext();
+            return (UsuariosFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/UsuariosFacade!operaciones.UsuariosFacade");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
         }
     }
+
 }

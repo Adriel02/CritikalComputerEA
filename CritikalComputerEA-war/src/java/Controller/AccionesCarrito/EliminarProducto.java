@@ -8,7 +8,6 @@ package Controller.AccionesCarrito;
 
 import Singletons.Log;
 import Stateful.Carrito;
-import Stateful.Producto;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -17,6 +16,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import models.Producto;
+import operaciones.ProductoFacade;
 
 /**
  *
@@ -24,22 +25,20 @@ import javax.servlet.ServletException;
  */
 public class EliminarProducto extends Controller.controller {
 
+
     Carrito carrito = lookupCarritoBean();
-
-    Producto producto = lookupProductoBean();
-
+    
     Log log = lookupLogBean();
 
     @Override
     public void process() {
-        String nombreProducto = request.getParameter("Producto");
-        System.out.println(nombreProducto);
+        int idproducto= Integer.parseInt(request.getParameter("id"));
         carrito = (Carrito) request.getSession().getAttribute("Carrito");  //devuelve un obj y tiene que ponerlo tipo carrito.
 
         HashMap<Producto, Integer> carro = carrito.getCarrito();
         Producto encontrado = null;
         for (Producto p : carro.keySet()) {
-            if (p.getNombre().equals(nombreProducto)) {
+            if (p.getId()==idproducto) {
                 encontrado = p;
             }
         }
@@ -52,9 +51,9 @@ public class EliminarProducto extends Controller.controller {
         try {
             redirect("/CritikalComputerEA-war/Carrito.jsp");
         } catch (ServletException ex) {
-            Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addCarrito.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addCarrito.class.getName()).log(Level.SEVERE, null, ex);
             
             Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
         }
@@ -70,16 +69,6 @@ public class EliminarProducto extends Controller.controller {
         }
     }
 
-    private Stateful.Producto lookupProductoBean() {
-        try {
-            Context c = new InitialContext();
-            return (Stateful.Producto) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Producto!Stateful.Producto");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
-    }
-
     private Carrito lookupCarritoBean() {
         try {
             Context c = new InitialContext();
@@ -89,4 +78,5 @@ public class EliminarProducto extends Controller.controller {
             throw new RuntimeException(ne);
         }
     }
+
 }

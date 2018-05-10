@@ -11,7 +11,6 @@ package Controller.AccionesCarrito;
  */
 import Singletons.Log;
 import Stateful.Carrito;
-import Stateful.Producto;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -20,25 +19,25 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import models.Producto;
+import operaciones.ProductoFacade;
 
-public class AddProduct extends Controller.controller {
+public class addCarrito extends Controller.controller {
+
+    ProductoFacade productoFacade = lookupProductoFacadeBean();
 
     Log log = lookupLogBean();
     Carrito carrito = lookupCarritoBean();
-    Producto producto = lookupProductoBean();
 
     @Override
     public void process() {
-        producto.setNombre(request.getParameter("nombre"));
-        producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
-        producto.setDescripcion(request.getParameter("descripcion"));
-
+        Producto producto = productoFacade.find(Integer.parseInt(request.getParameter("id")));
         carrito = (Carrito) request.getSession().getAttribute("Carrito");  //devuelve un obj y tiene que ponerlo tipo carrito.
-
+        
         HashMap<Producto, Integer> carro = carrito.getCarrito();
         Producto encontrado = null;
         for (Producto p : carro.keySet()) {
-            if (p.getNombre().equals(producto.getNombre())) {
+            if (p.getId()==producto.getId()) {
                 encontrado = p;
             }
         }
@@ -55,9 +54,9 @@ public class AddProduct extends Controller.controller {
         try {
             redirect("/CritikalComputerEA-war/Tienda.jsp");
         } catch (ServletException ex) {
-            Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addCarrito.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addCarrito.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
         }
     }
@@ -72,20 +71,20 @@ public class AddProduct extends Controller.controller {
         }
     }
 
-    private Stateful.Producto lookupProductoBean() {
+    private Carrito lookupCarritoBean() {
         try {
             Context c = new InitialContext();
-            return (Stateful.Producto) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Producto!Stateful.Producto");
+            return (Carrito) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Carrito!Stateful.Carrito");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);
         }
     }
 
-    private Carrito lookupCarritoBean() {
+    private ProductoFacade lookupProductoFacadeBean() {
         try {
             Context c = new InitialContext();
-            return (Carrito) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Carrito!Stateful.Carrito");
+            return (ProductoFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/ProductoFacade!operaciones.ProductoFacade");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);
