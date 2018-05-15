@@ -30,7 +30,7 @@ public class MostrarOfertas extends Controller.controller{
         List<Ofertas> ofertas= ofertasFacade.findAll();
         request.setAttribute("listaOfertas", ofertas);
         try {
-            forward("verOfertas");
+            forward("/verOfertas.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(MostrarOfertas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

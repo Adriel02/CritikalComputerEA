@@ -45,9 +45,10 @@ public class Producto implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "NOMBRE")
     private String nombre;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "PRECIO")
-    private Double precio;
+    private double precio;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
@@ -70,9 +71,10 @@ public class Producto implements Serializable {
         this.id = id;
     }
 
-    public Producto(Integer id, String nombre, String descripcion, String proveedor, int oferta) {
+    public Producto(Integer id, String nombre, double precio, String descripcion, String proveedor, int oferta) {
         this.id = id;
         this.nombre = nombre;
+        this.precio = precio;
         this.descripcion = descripcion;
         this.proveedor = proveedor;
         this.oferta = oferta;
@@ -94,11 +96,11 @@ public class Producto implements Serializable {
         this.nombre = nombre;
     }
 
-    public Double getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

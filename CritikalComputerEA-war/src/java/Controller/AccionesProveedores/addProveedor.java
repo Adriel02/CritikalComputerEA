@@ -32,7 +32,7 @@ public class addProveedor extends Controller.controller{
         proveedor.setEmpresa(request.getParameter("empresa"));
         proveedoresFacade.create(proveedor);
         try {
-            forward("principalAdministrador.jsp");
+            forward("/principalAdministrador.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(addProveedor.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage());

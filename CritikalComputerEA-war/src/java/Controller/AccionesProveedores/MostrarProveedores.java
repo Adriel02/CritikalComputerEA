@@ -30,7 +30,7 @@ public class MostrarProveedores extends Controller.controller {
         List<Proveedores> proveedores = proveedoresFacade.findAll();
         request.setAttribute("listaProveedores", proveedores);
         try {
-            forward("verProveedores.jsp");
+            forward("/verProveedores.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(MostrarProveedores.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage());

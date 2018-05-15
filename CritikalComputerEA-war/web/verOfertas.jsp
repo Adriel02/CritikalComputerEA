@@ -18,14 +18,15 @@
         <link rel="stylesheet" href="Recursos/loginCss.css">
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
-    <% List<Ofertas>ofertas=(List<Ofertas>)request.getAttribute("listaOfertas"); %>
+    <%List<Ofertas> ofertas = (List<Ofertas>) request.getAttribute("listaOfertas"); %>
     <body>
         <table>
-            <tr><th>Nombre</th>><th>Descuento</th><th>Eliminar</th></tr>
-            <% for(int i = 0;i<ofertas.size();i++){%>
-            <td><%= ofertas.get(i).getNombre() %></td>
+            <tr><th>Nombre</th><th>Descuento</th><th>Eliminar</th></tr>
+                    <% for (int i = 0; i < ofertas.size(); i++) {%>
+            <td><%= ofertas.get(i).getNombre()%></td>
             <td><%= ofertas.get(i).getDescuento()%></td>
             <td><a href="/CritikalComputerEA-war/frontServlet?command=deleteOferta&id=<%=ofertas.get(i).getId()%>">Eliminar</a></td>
             <%}%>
         </table>   
     </body>
+</html>

@@ -56,7 +56,7 @@ public class seleccionadorOpciones extends Controller.controller {
         request.setAttribute("listaProveedores", proveedores);
         request.setAttribute("listaOfertas", ofertas);
         try {
-            forward("CrearProducto.jsp");
+            forward("/CrearProducto.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(seleccionadorOpciones.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

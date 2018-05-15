@@ -39,7 +39,7 @@ public class MostrarProductos extends Controller.controller{
         List<Producto> productos= productoFacade.verProductos();
         request.setAttribute("listaProductos", productos);
         try {
-            forward("verProductos");
+            forward("/verProductos");
         } catch (ServletException ex) {
             Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

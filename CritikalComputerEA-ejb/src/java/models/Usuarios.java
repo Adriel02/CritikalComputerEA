@@ -44,7 +44,9 @@ public class Usuarios implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "NOMBRE")
     private String nombre;
-    @Size(max = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "APELLIDOS")
     private String apellidos;
     @Basic(optional = false)
@@ -65,9 +67,10 @@ public class Usuarios implements Serializable {
         this.id = id;
     }
 
-    public Usuarios(Integer id, String nombre, String contraseña, String tipo) {
+    public Usuarios(Integer id, String nombre, String apellidos, String contraseña, String tipo) {
         this.id = id;
         this.nombre = nombre;
+        this.apellidos = apellidos;
         this.contraseña = contraseña;
         this.tipo = tipo;
     }

@@ -35,7 +35,7 @@ public class MostrarUsuarios extends Controller.controller {
         List<Usuarios> usuarios = usuariosFacade.findAll();
         request.setAttribute("lista", usuarios);
         try {
-            forward("verUsuarios.jsp");
+            forward("/verUsuarios.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(MostrarUsuarios.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage());

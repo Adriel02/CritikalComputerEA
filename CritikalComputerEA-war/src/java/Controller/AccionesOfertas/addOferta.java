@@ -31,7 +31,7 @@ public class addOferta extends Controller.controller{
         oferta.setDescuento(Integer.parseInt(request.getParameter("descuento")));
         ofertasFacade.create(oferta);
         try {
-            forward("principalAdministrador.jsp");
+            forward("/principalAdministrador.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(addOferta.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage());

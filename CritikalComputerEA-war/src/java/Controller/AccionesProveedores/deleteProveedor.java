@@ -27,11 +27,12 @@ public class deleteProveedor extends Controller.controller {
     @Override
     public void process() {
         int idproveedor = Integer.parseInt(request.getParameter("id"));
+        System.out.println("idproveedor= "+idproveedor);
         Proveedores proveedor = proveedoresFacade.find(idproveedor);
         if (proveedor != null) {
             proveedoresFacade.remove(proveedor);
             try {
-                forward("principalAdministrador.jsp");
+                forward("/principalAdministrador.jsp");
             } catch (ServletException ex) {
                 Logger.getLogger(deleteProveedor.class.getName()).log(Level.SEVERE, null, ex);
                 Log.guardarExcepcion(ex.getMessage());

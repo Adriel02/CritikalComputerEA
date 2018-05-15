@@ -29,7 +29,7 @@ public class ProductoFacade extends AbstractFacade<Producto> {
     public ProductoFacade() {
         super(Producto.class);
     }
-    public void crearProducto(Producto producto){
+     public void crearProducto(Producto producto){
         String query= "INSERT INTO PRODUCTO(nombre,precio,descripcion,proveedor,oferta) VALUES (:nombre,:precio,:descripcion,:proveedor,:oferta);";
         em.createQuery(query).setParameter("nombre", producto.getNombre()).
                               setParameter("precio", producto.getPrecio()).
@@ -42,7 +42,7 @@ public class ProductoFacade extends AbstractFacade<Producto> {
         return em.createQuery(query).getResultList();
     }
     public void modificarProducto(Producto producto){
-        String query="UPDATE productos set nombre=:nombre,precio=:precio,descripcion=:descripcion,proveedor=:proveedor,oferta=:oferta where id=:id";
+        String query="UPDATE producto set nombre=:nombre,precio=:precio,descripcion=:descripcion,proveedor=:proveedor,oferta=:oferta where id=:id";
         em.createQuery(query).setParameter("nombre",producto.getNombre()).
                 setParameter("precio", producto.getPrecio()).
                 setParameter("descripcion", producto.getDescripcion()).
@@ -51,7 +51,8 @@ public class ProductoFacade extends AbstractFacade<Producto> {
                 setParameter("id", producto.getId()).executeUpdate();
     }
     public void eliminarProducto(Producto producto){
-        String query= "DELETE FROM PRODUCTOS where id=:id";
+        String query= "DELETE FROM PRODUCTO where id=:id";
         em.createQuery(query).setParameter("id", producto.getId()).executeUpdate();
-    }
+}
+    
 }

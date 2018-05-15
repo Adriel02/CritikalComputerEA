@@ -7,6 +7,7 @@ package Controller.cuenta;
 
 import Singletons.Estadisticas;
 import Singletons.Log;
+import Stateful.Carrito;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -31,20 +32,46 @@ import operaciones.UsuariosFacade;
  */
 public class login extends Controller.controller {
 
+    Carrito carrito = lookupCarritoBean1();
+
+    UsuariosFacade usuariosFacade1 = lookupUsuariosFacadeBean1();
+
     UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
 
     Log log = lookupLogBean();
 
     Estadisticas estadisticas = lookupEstadisticasBean();
 
+    
+    
     @Override
+    public void process() {
+        HttpSession session= request.getSession(true);
+        Usuarios usuario = new Usuarios();
+        usuario.setNombre(request.getParameter("nombre"));
+        usuario.setContraseña(request.getParameter("pass"));
+        session.setAttribute("Usuario", usuario);
+        session.setAttribute("Carrito", carrito);
+        Estadisticas.incrementarLogin();
+        try {
+            redirect("/CritikalComputerEA-war/principalAdministrador.jsp");
+        } catch (ServletException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+            Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
+        } catch (IOException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+            Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
+        }
+    }
+
+   /** @Override
     public void process() { //HAY QUE MODIFICAR AQUI
         HttpSession session = request.getSession(true);
         Stateful.Carrito carrito = lookupCarritoBean();
         /**usuario.setNombre(request.getParameter("nombre"));
         usuario.setContraseña(request.getParameter("pass"));
         session.setAttribute("Usuario", usuario);
-        session.setAttribute("Carrito", carrito);**/
+        session.setAttribute("Carrito", carrito);
         Estadisticas.incrementarLogin();
         System.out.println(request.getParameter("tipo"));
         /*try {
@@ -69,7 +96,7 @@ public class login extends Controller.controller {
         } catch (SQLException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-    }
+    //}
 /**
     private boolean userIsValid() throws SQLException {
         try {
@@ -129,6 +156,26 @@ public class login extends Controller.controller {
         try {
             Context c = new InitialContext();
             return (UsuariosFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/UsuariosFacade!operaciones.UsuariosFacade");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private UsuariosFacade lookupUsuariosFacadeBean1() {
+        try {
+            Context c = new InitialContext();
+            return (UsuariosFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/UsuariosFacade!operaciones.UsuariosFacade");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private Carrito lookupCarritoBean1() {
+        try {
+            Context c = new InitialContext();
+            return (Carrito) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Carrito!Stateful.Carrito");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

@@ -39,7 +39,7 @@ public class addUsuario extends Controller.controller {
         usuario.setTipo(request.getParameter("tipo"));
         usuariosFacade.create(usuario);
         try {
-            forward("principalAdministrador.jsp");
+            forward("/principalAdministrador.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(addUsuario.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage());

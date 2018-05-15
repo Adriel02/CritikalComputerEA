@@ -30,7 +30,7 @@ public class deleteOferta extends Controller.controller{
         if(oferta!=null){
             ofertasFacade.remove(oferta);
             try {
-                forward("principalAdministrador.jsp");
+                forward("/principalAdministrador.jsp");
             } catch (ServletException ex) {
                 Logger.getLogger(deleteOferta.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {

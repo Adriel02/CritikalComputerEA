@@ -34,7 +34,7 @@ public class addProducto extends Controller.controller{
         producto.setProveedor(request.getParameter("proveedor"));
         productoFacade.crearProducto(producto);
         try {
-            redirect("principalAdministrador");
+            redirect("/principalAdministrador");
         } catch (ServletException ex) {
             Logger.getLogger(addProducto.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

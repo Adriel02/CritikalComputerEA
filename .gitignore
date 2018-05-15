@@ -4,3 +4,6 @@
 /CritikalComputerEA-war/dist/
 /dist/
 /build/
+/nbproject/private/
+/CritikalComputerEA-war/nbproject/private/
+/CritikalComputerEA-ejb/nbproject/private/

@@ -43,7 +43,9 @@ public class Proveedores implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "NOMBRE")
     private String nombre;
-    @Size(max = 255)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     @Column(name = "APELLIDOS")
     private String apellidos;
     @Basic(optional = false)
@@ -59,9 +61,10 @@ public class Proveedores implements Serializable {
         this.id = id;
     }
 
-    public Proveedores(Integer id, String nombre, String empresa) {
+    public Proveedores(Integer id, String nombre, String apellidos, String empresa) {
         this.id = id;
         this.nombre = nombre;
+        this.apellidos = apellidos;
         this.empresa = empresa;
     }
 
