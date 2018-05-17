@@ -38,7 +38,7 @@ public class deleteUsuario extends Controller.controller {
         if (usuario != null) {
             usuariosFacade.remove(usuario);
             try {
-                forward("principalAdministrador.jsp");
+                forward("/principalAdministrador.jsp");
             } catch (ServletException ex) {
                 Logger.getLogger(deleteUsuario.class.getName()).log(Level.SEVERE, null, ex);
                 Log.guardarExcepcion(ex.getMessage());

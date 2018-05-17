@@ -34,6 +34,7 @@ public abstract class controller {
         RequestDispatcher dp
                 = context.getRequestDispatcher(target);
         dp.forward(request, response);
+        System.out.println(dp);
     }
     
     public void redirect(String target) throws ServletException, IOException {

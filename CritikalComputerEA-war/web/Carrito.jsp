@@ -4,8 +4,8 @@
     Author     : Adriel
 --%>
 
+<%@page import="models.Producto"%>
 <%@page import="Stateful.Carrito"%>
-<%@page import="Stateful.Producto"%>
 <%@page import="java.util.HashMap"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@
     </head>
     <body>
         <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
-            <a href="/CritikalComputerEA-war/Tienda.jsp" href="#" class="myButton" id="izquierda">Tienda</a>
+            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton" id="izquierda">Tienda</a>
             <table>
                 <tr>
                     <th></th>

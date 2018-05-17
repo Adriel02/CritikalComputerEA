@@ -46,10 +46,11 @@ public class login extends Controller.controller {
     
     @Override
     public void process() {
-        HttpSession session= request.getSession(true);
+        HttpSession session= request.getSession();
         Usuarios usuario = new Usuarios();
         usuario.setNombre(request.getParameter("nombre"));
         usuario.setContraseña(request.getParameter("pass"));
+        usuario.setTipo(request.getParameter("tipo"));
         session.setAttribute("Usuario", usuario);
         session.setAttribute("Carrito", carrito);
         Estadisticas.incrementarLogin();

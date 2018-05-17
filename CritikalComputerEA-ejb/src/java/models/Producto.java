@@ -9,11 +9,12 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -28,56 +29,37 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p")
     , @NamedQuery(name = "Producto.findById", query = "SELECT p FROM Producto p WHERE p.id = :id")
     , @NamedQuery(name = "Producto.findByNombre", query = "SELECT p FROM Producto p WHERE p.nombre = :nombre")
-    , @NamedQuery(name = "Producto.findByPrecio", query = "SELECT p FROM Producto p WHERE p.precio = :precio")
     , @NamedQuery(name = "Producto.findByDescripcion", query = "SELECT p FROM Producto p WHERE p.descripcion = :descripcion")
+    , @NamedQuery(name = "Producto.findByPrecio", query = "SELECT p FROM Producto p WHERE p.precio = :precio")
     , @NamedQuery(name = "Producto.findByProveedor", query = "SELECT p FROM Producto p WHERE p.proveedor = :proveedor")
     , @NamedQuery(name = "Producto.findByOferta", query = "SELECT p FROM Producto p WHERE p.oferta = :oferta")})
 public class Producto implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 50)
     @Column(name = "NOMBRE")
     private String nombre;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "PRECIO")
-    private double precio;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 50)
     @Column(name = "DESCRIPCION")
     private String descripcion;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "PRECIO")
+    private Double precio;
     @Column(name = "PROVEEDOR")
-    private String proveedor;
-    @Basic(optional = false)
-    @NotNull
+    private Integer proveedor;
     @Column(name = "OFERTA")
-    private int oferta;
+    private Integer oferta;
 
     public Producto() {
     }
 
     public Producto(Integer id) {
         this.id = id;
-    }
-
-    public Producto(Integer id, String nombre, double precio, String descripcion, String proveedor, int oferta) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.descripcion = descripcion;
-        this.proveedor = proveedor;
-        this.oferta = oferta;
     }
 
     public Integer getId() {
@@ -96,14 +78,6 @@ public class Producto implements Serializable {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -112,19 +86,27 @@ public class Producto implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getProveedor() {
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public Integer getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(String proveedor) {
+    public void setProveedor(Integer proveedor) {
         this.proveedor = proveedor;
     }
 
-    public int getOferta() {
+    public Integer getOferta() {
         return oferta;
     }
 
-    public void setOferta(int oferta) {
+    public void setOferta(Integer oferta) {
         this.oferta = oferta;
     }
 

@@ -6,6 +6,7 @@
 package Controller.AccionesProducto;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,13 +27,52 @@ import operaciones.ProveedoresFacade;
  *
  * @author Adriel
  */
-public class MostrarProductos extends Controller.controller {
+public class MostrarProductosCriteriaAPI extends Controller.controller {
 
     OfertasFacade ofertasFacade = lookupOfertasFacadeBean();
 
     ProveedoresFacade proveedoresFacade = lookupProveedoresFacadeBean();
 
     ProductoFacade productoFacade = lookupProductoFacadeBean();
+
+    @Override
+    public void process() {
+        String criterio = "";
+        Map<Integer, Proveedores> proveedores = new HashMap<>();
+        Map<Integer, Ofertas> ofertas = new HashMap<>();
+        criterio = request.getParameter("criterio");
+        List<Producto> productos = new ArrayList<>();
+        switch (criterio) {
+            case "asc":
+                productos = productoFacade.verProductosPrecioAsc();
+                break;
+            case "desc":
+                productos = productoFacade.verProductosPrecioDesc();
+                break;
+            case "abcd":
+                productos = productoFacade.verProductosAlfabetico();
+                break;
+            default:
+                productos = productoFacade.verProductosPrecioDesc();
+                break;
+        }
+        request.setAttribute("listaProductos", productos);
+        for (Producto p : productos) {
+            proveedores.put(p.getProveedor(), proveedoresFacade.find(p.getProveedor()));
+        }
+        for (Producto p : productos) {
+            ofertas.put(p.getOferta(), ofertasFacade.find(p.getOferta()));
+        }
+        request.setAttribute("mapaProveedores", proveedores);
+        request.setAttribute("mapaOfertas", ofertas);
+        try {
+            forward("/verProductosCriteriaAPI.jsp");
+        } catch (ServletException ex) {
+            Logger.getLogger(MostrarProductosCriteriaAPI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MostrarProductosCriteriaAPI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     private ProductoFacade lookupProductoFacadeBean() {
         try {
@@ -41,32 +81,6 @@ public class MostrarProductos extends Controller.controller {
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);
-        }
-    }
-
-    @Override
-    public void process() {
-        List<Producto> productos = productoFacade.verProductos();
-        request.setAttribute("listaProductos", productos);
-        Map<Integer, Proveedores> proveedores = new HashMap<>();
-        Map<Integer, Ofertas> ofertas = new HashMap<>();
-        
-        for (Producto p : productos) {
-            proveedores.put(p.getProveedor(),proveedoresFacade.find(p.getProveedor()));
-        }
-        for (Producto p : productos) {
-            ofertas.put(p.getOferta(),ofertasFacade.find(p.getOferta()));
-        }
-        request.setAttribute("mapaProveedores", proveedores);
-        request.setAttribute("mapaOfertas", ofertas);
-        
-        System.out.println(productos);
-        try {
-            forward("/verProductos.jsp");
-        } catch (ServletException ex) {
-            Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

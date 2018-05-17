@@ -21,7 +21,7 @@
                 <h1>Crear Proveedor</h1>
                 <hr>
                 <label for="Nombre"><b>Nombre</b></label>
-                <input type="text" placeholder="Nombre" name="nombre" required>
+                <input type="text" placeholder="Nombre" name="name" required>
                 <label for="Apellidos"><b>Apellidos</b></label>
                 <input type="text" placeholder="Apellidos" name="apellidos" required>
                 <label for=""><b>Empresa</b></label>

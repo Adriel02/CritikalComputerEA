@@ -31,10 +31,10 @@ public class addProducto extends Controller.controller{
         producto.setNombre(request.getParameter("nombre"));
         producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
         producto.setOferta(Integer.parseInt(request.getParameter("oferta")));
-        producto.setProveedor(request.getParameter("proveedor"));
+        producto.setProveedor(Integer.parseInt(request.getParameter("proveedor")));
         productoFacade.crearProducto(producto);
         try {
-            redirect("/principalAdministrador");
+            forward("/principalAdministrador.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(addProducto.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

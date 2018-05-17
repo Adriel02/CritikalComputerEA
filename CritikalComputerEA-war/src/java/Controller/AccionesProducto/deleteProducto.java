@@ -40,7 +40,7 @@ public class deleteProducto extends Controller.controller{
         if(producto!=null){
             productoFacade.eliminarProducto(producto);
             try {
-                forward("principalAdministrador.jsp");
+                forward("/principalAdministrador.jsp");
             } catch (ServletException ex) {
                 Logger.getLogger(deleteProducto.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {

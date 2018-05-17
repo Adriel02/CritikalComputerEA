@@ -22,10 +22,12 @@
         <table>
             <tr><th>Nombre</th><th>Apellidos</th><th>Empresa</th><th>Eliminar</th></tr>
             <% for(int i = 0;i<proveedores.size();i++){%>
+            <tr>
             <td><%= proveedores.get(i).getNombre() %></td>
             <td><%= proveedores.get(i).getApellidos()%></td>
             <td><%= proveedores.get(i).getEmpresa()%></td>
-            <td><a href="/CritikalComputerEA-war/frontServlet?command=deleteProveedor&id=<%=proveedores.get(i).getId()%>">Eliminar</a></td>
+            <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesProveedores.deleteProveedor&id=<%=proveedores.get(i).getId()%>">Eliminar</a></td>
+            </tr>
             <%}%>
         </table>   
     </body>

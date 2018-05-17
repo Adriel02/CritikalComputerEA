@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.persistence.EntityExistsException;
 import javax.servlet.ServletException;
 import models.Proveedores;
 import operaciones.ProveedoresFacade;
@@ -20,14 +21,14 @@ import operaciones.ProveedoresFacade;
  *
  * @author Adriel
  */
-public class addProveedor extends Controller.controller{
+public class addProveedor extends Controller.controller {
 
     ProveedoresFacade proveedoresFacade = lookupProveedoresFacadeBean();
 
     @Override
     public void process() {
         Proveedores proveedor = new Proveedores();
-        proveedor.setNombre(request.getParameter("nombre"));
+        proveedor.setNombre(request.getParameter("name"));
         proveedor.setApellidos(request.getParameter("apellidos"));
         proveedor.setEmpresa(request.getParameter("empresa"));
         proveedoresFacade.create(proveedor);
@@ -51,5 +52,5 @@ public class addProveedor extends Controller.controller{
             throw new RuntimeException(ne);
         }
     }
-    
+
 }

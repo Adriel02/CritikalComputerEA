@@ -23,9 +23,11 @@
         <table>
             <tr><th>Nombre</th><th>Descuento</th><th>Eliminar</th></tr>
                     <% for (int i = 0; i < ofertas.size(); i++) {%>
+            <tr>
             <td><%= ofertas.get(i).getNombre()%></td>
             <td><%= ofertas.get(i).getDescuento()%></td>
-            <td><a href="/CritikalComputerEA-war/frontServlet?command=deleteOferta&id=<%=ofertas.get(i).getId()%>">Eliminar</a></td>
+            <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesOfertas.deleteOferta&id=<%=ofertas.get(i).getId()%>">Eliminar</a></td>
+            </tr>
             <%}%>
         </table>   
     </body>

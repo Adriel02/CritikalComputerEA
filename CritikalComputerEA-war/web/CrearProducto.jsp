@@ -40,6 +40,8 @@
                 <option value="<%=ofertas.get(i).getId()%>"><%=ofertas.get(i).getDescuento()%>%</option>
                 <%}%>
             </select>
+             <input type="hidden" name="command" value="AccionesProducto.addProducto"><br><br>
+                <button type="submit">Añadir</button>
         </form>
     </body>
 </html>

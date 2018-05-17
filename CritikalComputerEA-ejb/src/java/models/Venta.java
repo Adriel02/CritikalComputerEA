@@ -23,14 +23,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Adriel
  */
 @Entity
-@Table(name = "OFERTAS")
+@Table(name = "VENTA")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Ofertas.findAll", query = "SELECT o FROM Ofertas o")
-    , @NamedQuery(name = "Ofertas.findById", query = "SELECT o FROM Ofertas o WHERE o.id = :id")
-    , @NamedQuery(name = "Ofertas.findByNombre", query = "SELECT o FROM Ofertas o WHERE o.nombre = :nombre")
-    , @NamedQuery(name = "Ofertas.findByDescuento", query = "SELECT o FROM Ofertas o WHERE o.descuento = :descuento")})
-public class Ofertas implements Serializable {
+    @NamedQuery(name = "Venta.findAll", query = "SELECT v FROM Venta v")
+    , @NamedQuery(name = "Venta.findById", query = "SELECT v FROM Venta v WHERE v.id = :id")
+    , @NamedQuery(name = "Venta.findByUsuario", query = "SELECT v FROM Venta v WHERE v.usuario = :usuario")
+    , @NamedQuery(name = "Venta.findByFecha", query = "SELECT v FROM Venta v WHERE v.fecha = :fecha")
+    , @NamedQuery(name = "Venta.findByPreciototal", query = "SELECT v FROM Venta v WHERE v.preciototal = :preciototal")})
+public class Venta implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,15 +40,19 @@ public class Ofertas implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @Size(max = 50)
-    @Column(name = "NOMBRE")
-    private String nombre;
-    @Column(name = "DESCUENTO")
-    private Integer descuento;
+    @Column(name = "USUARIO")
+    private String usuario;
+    @Size(max = 50)
+    @Column(name = "FECHA")
+    private String fecha;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "PRECIOTOTAL")
+    private Double preciototal;
 
-    public Ofertas() {
+    public Venta() {
     }
 
-    public Ofertas(Integer id) {
+    public Venta(Integer id) {
         this.id = id;
     }
 
@@ -59,20 +64,28 @@ public class Ofertas implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public Integer getDescuento() {
-        return descuento;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setDescuento(Integer descuento) {
-        this.descuento = descuento;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public Double getPreciototal() {
+        return preciototal;
+    }
+
+    public void setPreciototal(Double preciototal) {
+        this.preciototal = preciototal;
     }
 
     @Override
@@ -85,10 +98,10 @@ public class Ofertas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Ofertas)) {
+        if (!(object instanceof Venta)) {
             return false;
         }
-        Ofertas other = (Ofertas) object;
+        Venta other = (Venta) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -97,7 +110,7 @@ public class Ofertas implements Serializable {
 
     @Override
     public String toString() {
-        return "models.Ofertas[ id=" + id + " ]";
+        return "models.Venta[ id=" + id + " ]";
     }
     
 }

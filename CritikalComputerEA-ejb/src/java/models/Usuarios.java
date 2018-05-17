@@ -9,11 +9,12 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -35,28 +36,20 @@ public class Usuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 50)
     @Column(name = "NOMBRE")
     private String nombre;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 50)
     @Column(name = "APELLIDOS")
     private String apellidos;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 50)
     @Column(name = "CONTRASE\u00d1A")
     private String contraseña;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 50)
     @Column(name = "TIPO")
     private String tipo;
 
@@ -65,14 +58,6 @@ public class Usuarios implements Serializable {
 
     public Usuarios(Integer id) {
         this.id = id;
-    }
-
-    public Usuarios(Integer id, String nombre, String apellidos, String contraseña, String tipo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.contraseña = contraseña;
-        this.tipo = tipo;
     }
 
     public Integer getId() {

@@ -5,8 +5,18 @@
  */
 package operaciones;
 
+import static java.lang.Math.log;
+import static java.lang.StrictMath.log;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import javax.faces.validator.Validator;
 import javax.persistence.EntityManager;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
 
 /**
  *
@@ -23,7 +33,12 @@ public abstract class AbstractFacade<T> {
     protected abstract EntityManager getEntityManager();
 
     public void create(T entity) {
-        getEntityManager().persist(entity);
+        try {
+            getEntityManager().persist(entity);
+
+        } catch (ConstraintViolationException e) {
+            e.getConstraintViolations().forEach(err -> System.out.println(err));
+        }
     }
 
     public void edit(T entity) {
@@ -60,5 +75,5 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
 }

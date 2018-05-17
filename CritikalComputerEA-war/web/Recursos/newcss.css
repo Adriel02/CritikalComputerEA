@@ -49,3 +49,8 @@ header{
     text-align: center;
     font-family: 'Indie Flower', cursive;
 }
+
+table{
+    padding: 20px;
+    width: 50%;
+}

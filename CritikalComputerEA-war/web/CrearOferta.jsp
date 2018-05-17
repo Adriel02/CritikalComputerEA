@@ -18,14 +18,14 @@
         <h1></h1>
         <form action="/CritikalComputerEA-war/frontServlet" method="post">
             <div class="addUsuario">
-                <h1>Crear Jugador</h1>
+                <h1>Crear Oferta</h1>
                 <hr>
                 <label for="Nombre"><b>Nombre</b></label>
                 <input type="text" placeholder="Nombre" name="nombre" required>
                 <label for="Apellidos"><b>Descuento</b></label>
                 <input type="text" placeholder="Descuento" name="descuento" required>
                 
-                <input type="hidden" name="command" value="AccionesOferta.addOferta"><br><br>
+                <input type="hidden" name="command" value="AccionesOfertas.addOferta"><br><br>
                 <button type="submit">Añadir</button>
             </div>
         </form>

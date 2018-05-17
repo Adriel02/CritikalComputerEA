@@ -52,7 +52,7 @@ public class addCarrito extends Controller.controller {
         carrito.setCarrito(carro);
         request.getSession().setAttribute("Carrito", carrito);
         try {
-            redirect("/CritikalComputerEA-war/Tienda.jsp");
+            redirect("/CritikalComputerEA-war/principalAdministrador.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(addCarrito.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

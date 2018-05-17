@@ -38,18 +38,13 @@ public class Ventas implements Serializable {
     @NotNull
     @Column(name = "ID")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    @Size(max = 255)
     @Column(name = "FECHA")
     private String fecha;
-    @Basic(optional = false)
-    @NotNull
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PRECIOTOTAL")
-    private double preciototal;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
+    private Double preciototal;
+    @Size(max = 255)
     @Column(name = "USUARIO")
     private String usuario;
 
@@ -58,13 +53,6 @@ public class Ventas implements Serializable {
 
     public Ventas(Integer id) {
         this.id = id;
-    }
-
-    public Ventas(Integer id, String fecha, double preciototal, String usuario) {
-        this.id = id;
-        this.fecha = fecha;
-        this.preciototal = preciototal;
-        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -83,11 +71,11 @@ public class Ventas implements Serializable {
         this.fecha = fecha;
     }
 
-    public double getPreciototal() {
+    public Double getPreciototal() {
         return preciototal;
     }
 
-    public void setPreciototal(double preciototal) {
+    public void setPreciototal(Double preciototal) {
         this.preciototal = preciototal;
     }
 
