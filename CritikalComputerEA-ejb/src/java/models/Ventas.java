@@ -9,11 +9,12 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -27,26 +28,26 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Ventas.findAll", query = "SELECT v FROM Ventas v")
     , @NamedQuery(name = "Ventas.findById", query = "SELECT v FROM Ventas v WHERE v.id = :id")
+    , @NamedQuery(name = "Ventas.findByUsuario", query = "SELECT v FROM Ventas v WHERE v.usuario = :usuario")
     , @NamedQuery(name = "Ventas.findByFecha", query = "SELECT v FROM Ventas v WHERE v.fecha = :fecha")
-    , @NamedQuery(name = "Ventas.findByPreciototal", query = "SELECT v FROM Ventas v WHERE v.preciototal = :preciototal")
-    , @NamedQuery(name = "Ventas.findByUsuario", query = "SELECT v FROM Ventas v WHERE v.usuario = :usuario")})
+    , @NamedQuery(name = "Ventas.findByPreciototal", query = "SELECT v FROM Ventas v WHERE v.preciototal = :preciototal")})
 public class Ventas implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
     private Integer id;
-    @Size(max = 255)
+    @Size(max = 50)
+    @Column(name = "USUARIO")
+    private String usuario;
+    @Size(max = 50)
     @Column(name = "FECHA")
     private String fecha;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PRECIOTOTAL")
     private Double preciototal;
-    @Size(max = 255)
-    @Column(name = "USUARIO")
-    private String usuario;
 
     public Ventas() {
     }
@@ -63,6 +64,14 @@ public class Ventas implements Serializable {
         this.id = id;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public String getFecha() {
         return fecha;
     }
@@ -77,14 +86,6 @@ public class Ventas implements Serializable {
 
     public void setPreciototal(Double preciototal) {
         this.preciototal = preciototal;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     @Override

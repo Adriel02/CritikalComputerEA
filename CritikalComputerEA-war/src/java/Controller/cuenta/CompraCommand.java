@@ -30,14 +30,16 @@ public class CompraCommand extends Controller.controller{
 
     VentasFacade ventasFacade = lookupVentasFacadeBean();
 
+
     Log log = lookupLogBean();
 
     @Override
     public void process() {
         HttpSession session= request.getSession(true);
-        Carrito carro = (Carrito) session.getAttribute("Carrito");
+            Carrito carro = (Carrito) session.getAttribute("Carrito");
+            Usuarios usuario = (Usuarios) session.getAttribute("Usuario");
         Ventas venta= new Ventas(); 
-        venta.setUsuario(((Usuarios)request.getAttribute("Usuario")).getNombre());
+        venta.setUsuario(usuario.getNombre());
         venta.setFecha(new Date().toString());
         double precioTotal=0;
         
@@ -50,7 +52,7 @@ public class CompraCommand extends Controller.controller{
         carro.getCarrito().clear();
         
         try {
-            redirect("/CritikalComputerEA-war/verProductos.jsp");
+            redirect("/CritikalComputerEA-war/principalAdministrador.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
             Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
@@ -80,5 +82,7 @@ public class CompraCommand extends Controller.controller{
             throw new RuntimeException(ne);
         }
     }
+
+    
     
 }

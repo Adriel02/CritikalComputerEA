@@ -39,6 +39,12 @@
             </li>
             <li>
                 <form action="/CritikalComputerEA-war/frontServlet" method="post">
+                    <input type="hidden" name="command" value="AccionesVentas.MostrarVentas">
+                    <button type="submit" name="ventas" href="#" class="myButton" > Ver Ventas</button>
+                </form>
+            </li>
+            <li>
+                <form action="/CritikalComputerEA-war/frontServlet" method="post">
                     <input type="hidden" name="command" value="AccionesProveedores.MostrarProveedores">
                     <button type="submit" name="proveedores" class="myButton" > Ver proveedores</button>
                 </form>

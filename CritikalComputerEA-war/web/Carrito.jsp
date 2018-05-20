@@ -32,6 +32,7 @@
                 </tr>
             <%
                 Carrito carro = (Carrito) session.getAttribute("Carrito");
+                double precioFinal=0;
                 for (Producto p : carro.getCarrito().keySet()) {%>
             <tr>
                 <td id="stilo2" style="width: 20%;text-align: center;"><%= p.getNombre()%></td>
@@ -42,6 +43,12 @@
             </tr>
             <%}%>
         </table>
+        <%for (Producto p : carro.getCarrito().keySet()) {
+            precioFinal+=p.getPrecio()*carro.getCarrito().get(p);
+        %>
+        <%} %>
+        <h3>Precio Total a pagar: <%= precioFinal%>€</h3>
+        
         <%if (carro.getCarrito().isEmpty() == false) {%>
         <a  href = "/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.EliminarTodo" href = "#" class="myButton" id = "izquierda" > Vaciar Carrito</a >
         <%}%>
