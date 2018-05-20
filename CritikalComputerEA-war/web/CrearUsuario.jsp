@@ -15,7 +15,8 @@
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
     <body>
-        <h1></h1>
+        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
         <form action="/CritikalComputerEA-war/frontServlet" method="post">
             <div class="addUsuario">
                 <h1>Crear Usuario</h1>

@@ -1,3 +1,4 @@
+<%@page import="models.Usuarios"%>
 <html>
     <head>
         <title>Critikal Computer</title>
@@ -8,7 +9,7 @@
 
     </head>
     <body>
-
+        <%Usuarios usuario = (Usuarios) session.getAttribute("Usuario");%>
         <form action="/CritikalComputerEA-war/frontServlet" method="post">
             <div class="salir">
                 <input type="hidden" name="command" value="cuenta.salir">
@@ -17,50 +18,61 @@
         </form>
         <a href="/CritikalComputerEA-war/Log.jsp" href="#" class="myButton" id="izquierda">Log</a>
         <a href="/CritikalComputerEA-war/VerEstadisticas.jsp" href="#" class="myButton" id="izquierda">Ver Estadisticas</a>
-        <a href="/CritikalComputerEA-war/CrearUsuario.jsp" href="#" class="myButton" id="izquierda">Crear Usuario</a>
-        <a href="/CritikalComputerEA-war/CrearOferta.jsp" href="#" class="myButton" id="izquierda">Crear Oferta</a>
-        <a href="/CritikalComputerEA-war/CrearProveedor.jsp" href="#" class="myButton" id="izquierda">Crear Proveedor</a>
         <a href="/CritikalComputerEA-war/Carrito.jsp" href="#" class="myButton" id="izquierda">Ver Carrito</a>
-        <a href="/CritikalComputerEA-war/frontServlet?command=AccionesProducto.seleccionadorOpciones" href="#" class="myButton" id="izquierda">Crear Producto</a>
         <br>
-        <form action="/CritikalComputerEA-war/frontServlet" method="post">
-            <input type="hidden" name="command" value="AccionesUsuario.MostrarUsuarios">
-            <button type="submit" name="usuarios"> Ver Usuarios</button>
-        </form>
-        
-        <form action="/CritikalComputerEA-war/frontServlet" method="post">
-            <input type="hidden" name="command" value="AccionesOfertas.MostrarOfertas">
-            <button type="submit" name="ofertas"> Ver OFERTAS</button>
-        </form>
-      
-        
-        <form action="/CritikalComputerEA-war/frontServlet" method="post">
-            <input type="hidden" name="command" value="AccionesProveedores.MostrarProveedores">
-            <button type="submit" name="proveedores"> Ver proveedores</button>
-        </form>
-        
-        <form action="/CritikalComputerEA-war/frontServlet" method="POST">
-            <input type="hidden" name="command" value="AccionesProducto.MostrarProductos">
-            <button type="submit" name="productos"> Ver Productos</button>
-        </form>
-        
-        <form action="/CritikalComputerEA-war/frontServlet" method="POST">
-            <input type="hidden" name="command" value="AccionesProducto.MostrarProductosCriteriaAPI">
-            <input type="hidden" name="criterio" value="abcd">
-            <button type="submit" name="productos"> Ver ProductosABCD(CriteriaAPI)</button>
-        </form>
-        <form action="/CritikalComputerEA-war/frontServlet" method="POST">
-            <input type="hidden" name="command" value="AccionesProducto.MostrarProductosCriteriaAPI">
-            <input type="hidden" name="criterio" value="asc">
-            <button type="submit" name="productos"> Ver ProductosASC(CriteriaAPI)</button>
-        </form>
-        <form action="/CritikalComputerEA-war/frontServlet" method="POST">
-            <input type="hidden" name="command" value="AccionesProducto.MostrarProductosCriteriaAPI">
-            <input type="hidden" name="criterio" value="desc">
-            <button type="submit" name="productos"> Ver ProductosDESC(CriteriaAPI)</button>
-        </form>
-      
-        <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
+        <%if (usuario.getTipo().equals("Administrador")) {%>
+        <%}%>
+        <ul id="listaPrincipal">
+            <h4>Elija una opción:</h4>
+            <%if (usuario.getTipo().equals("Administrador")) {%>
+            <li>
+                <form action="/CritikalComputerEA-war/frontServlet" method="post">
+                    <input type="hidden" name="command" value="AccionesUsuario.MostrarUsuarios">
+                    <button type="submit" name="usuarios" class="myButton" > Ver Usuarios</button>
+                </form>
+            </li>
+            <li>
+                <form action="/CritikalComputerEA-war/frontServlet" method="post">
+                    <input type="hidden" name="command" value="AccionesOfertas.MostrarOfertas">
+                    <button type="submit" name="ofertas" href="#" class="myButton" > Ver OFERTAS</button>
+                </form>
+            </li>
+            <li>
+                <form action="/CritikalComputerEA-war/frontServlet" method="post">
+                    <input type="hidden" name="command" value="AccionesProveedores.MostrarProveedores">
+                    <button type="submit" name="proveedores" class="myButton" > Ver proveedores</button>
+                </form>
+            </li>
+            <%}%>
+            <li>
+                <form action="/CritikalComputerEA-war/frontServlet" method="POST">
+                    <input type="hidden" name="command" value="AccionesProducto.MostrarProductos">
+                    <button type="submit" name="productos"  class="myButton"> Ver Productos</button>
+                </form>
+            </li>
+            <li>
+                <form action="/CritikalComputerEA-war/frontServlet" method="POST">
+                    <input type="hidden" name="command" value="AccionesProducto.MostrarProductosCriteriaAPI">
+                    <input type="hidden" name="criterio" value="abcd">
+                    <button type="submit" name="productos" class="myButton"> Ver Productos ordenados</button>
+                </form>
+            </li>
+            <li>
+                <form action="/CritikalComputerEA-war/frontServlet" method="POST">
+                    <input type="hidden" name="command" value="AccionesProducto.MostrarProductosCriteriaAPI">
+                    <input type="hidden" name="criterio" value="asc">
+                    <button type="submit" name="productos"  class="myButton"> Ver Productos ordenados por Precio ASC</button>
+                </form>
+            </li>
+            <li>
+                <form action="/CritikalComputerEA-war/frontServlet" method="POST">
+                    <input type="hidden" name="command" value="AccionesProducto.MostrarProductosCriteriaAPI">
+                    <input type="hidden" name="criterio" value="desc">
+                    <button type="submit" name="productos"  class="myButton"> Ver Productos ordenados por Precio DESC</button>
+                </form>
+            </li>
+        </ul>
+
 
     </body>
 </html>

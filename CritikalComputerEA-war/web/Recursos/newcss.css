@@ -53,4 +53,25 @@ header{
 table{
     padding: 20px;
     width: 50%;
+    text-align: center;
+}
+th{
+    padding: 7px;
+}
+
+#listaPrincipal{
+    padding: 30px 0 0 0;
+}
+select{
+    border-radius: 5px;
+    border: 1px solid; 
+    padding: 7px;
+}
+textarea{
+    border: 1px solid;
+    border-radius: 5px;
+}
+td a{
+    text-decoration: none;
+    color: black;
 }

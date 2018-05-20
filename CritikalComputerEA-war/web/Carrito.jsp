@@ -38,7 +38,7 @@
                 <td><%=carro.getCarrito().get(p)%></td>
                 <td><%= p.getPrecio()%>€</td>
                 <td><%= p.getPrecio() * carro.getCarrito().get(p)%>€</td>
-                <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.EliminarProducto&Producto=<%=p.getNombre()%>" id="stilo1">Eliminar</a></td>
+                <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.EliminarProducto&id=<%=p.getId()%>" id="stilo1">Eliminar</a></td>
             </tr>
             <%}%>
         </table>

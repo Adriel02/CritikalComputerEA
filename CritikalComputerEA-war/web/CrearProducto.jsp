@@ -20,28 +20,30 @@
     <% List<Proveedores> proveedores = (List<Proveedores>) request.getAttribute("listaProveedores"); %>
     <% List<Ofertas> ofertas = (List<Ofertas>) request.getAttribute("listaOfertas"); %>
     <body>
+        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
         <form action="/CritikalComputerEA-war/frontServlet" method="POST">
             <input type="hidden" name="command" value="AccionesProducto.addProducto">
             <label for="Nombre"><b>Nombre</b></label>
             <input type="text" placeholder="Nombre" name="nombre" required>
             <label for="precio"><b>Precio</b></label>
             <input type="text" placeholder="Precio" name="precio" required>
-            <label for="descripcion"><b>Descripcion</b></label>
-            <textarea name="descripcion" rows="4" cols="30"></textarea>
+            <label for="descripcion"><b>Descripcion</b></label><br>
+            <textarea name="descripcion" rows="4" cols="30"></textarea><br>
             <label for="proveedor"><b>Proveedor</b></label><br>
             <select name="proveedor" required="required">
                 <%for (int i = 0; i < proveedores.size(); i++) {%>
                 <option value="<%=proveedores.get(i).getId()%>"><%=proveedores.get(i).getEmpresa()%></option>
                 <%}%>
-            </select>
+            </select><br>
             <label for="oferta"><b>Oferta</b></label><br>
             <select name="oferta" required="required">
                 <%for (int i = 0; i < ofertas.size(); i++) {%>
                 <option value="<%=ofertas.get(i).getId()%>"><%=ofertas.get(i).getDescuento()%>%</option>
                 <%}%>
-            </select>
-             <input type="hidden" name="command" value="AccionesProducto.addProducto"><br><br>
-                <button type="submit">Añadir</button>
+            </select><br>
+            <input type="hidden" name="command" value="AccionesProducto.addProducto"><br><br>
+            <button type="submit">Añadir</button>
         </form>
     </body>
 </html>

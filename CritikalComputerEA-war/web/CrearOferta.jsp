@@ -15,7 +15,8 @@
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
     <body>
-        <h1></h1>
+        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
         <form action="/CritikalComputerEA-war/frontServlet" method="post">
             <div class="addUsuario">
                 <h1>Crear Oferta</h1>
@@ -24,7 +25,7 @@
                 <input type="text" placeholder="Nombre" name="nombre" required>
                 <label for="Apellidos"><b>Descuento</b></label>
                 <input type="text" placeholder="Descuento" name="descuento" required>
-                
+
                 <input type="hidden" name="command" value="AccionesOfertas.addOferta"><br><br>
                 <button type="submit">Añadir</button>
             </div>

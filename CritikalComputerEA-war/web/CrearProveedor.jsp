@@ -15,7 +15,8 @@
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
     <body>
-        <h1></h1>
+        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
         <form action="/CritikalComputerEA-war/frontServlet" method="post">
             <div class="addUsuario">
                 <h1>Crear Proveedor</h1>
@@ -26,7 +27,7 @@
                 <input type="text" placeholder="Apellidos" name="apellidos" required>
                 <label for=""><b>Empresa</b></label>
                 <input type="text" placeholder="Empresa" name="empresa" required>
-                
+
                 <input type="hidden" name="command" value="AccionesProveedores.addProveedor"><br><br>
                 <button type="submit">Añadir</button>
             </div>

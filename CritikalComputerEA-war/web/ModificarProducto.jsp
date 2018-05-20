@@ -23,6 +23,8 @@
     <% List<Ofertas> ofertas = (List<Ofertas>) request.getAttribute("listaOfertas"); %>
     <% Producto producto = (Producto) request.getAttribute("producto");%>
     <body>
+        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
         <form action="/CritikalComputerEA-war/frontServlet" method="POST">
             <input type="hidden" name="command" value="AccionesProducto.addProducto">
             <label for="Nombre"><b>Nombre</b></label>
@@ -30,7 +32,7 @@
             <label for="precio"><b>Precio</b></label>
             <input type="text" placeholder="Precio" name="precio" required value="<%=producto.getPrecio()%>">
             <label for="descripcion"><b>Descripcion</b></label>
-            <textarea name="descripcion" rows="4" cols="30" ><%=producto.getDescripcion()%></textarea>
+            <textarea name="descripcion" rows="6" cols="30"><%=producto.getDescripcion()%></textarea>
             <label for="proveedor"><b>Proveedor</b></label><br>
             <select name="proveedor" required="required">
                 <%for (int i = 0; i < proveedores.size(); i++) {

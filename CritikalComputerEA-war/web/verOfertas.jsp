@@ -18,17 +18,24 @@
         <link rel="stylesheet" href="Recursos/loginCss.css">
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
-    <%List<Ofertas> ofertas = (List<Ofertas>) request.getAttribute("listaOfertas"); %>
+    <%List<Ofertas> ofertas = (List<Ofertas>) request.getAttribute("listaOfertas");
+        Usuarios usuario = (Usuarios) session.getAttribute("Usuario");%>
     <body>
+        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
         <table>
             <tr><th>Nombre</th><th>Descuento</th><th>Eliminar</th></tr>
                     <% for (int i = 0; i < ofertas.size(); i++) {%>
             <tr>
-            <td><%= ofertas.get(i).getNombre()%></td>
-            <td><%= ofertas.get(i).getDescuento()%></td>
-            <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesOfertas.deleteOferta&id=<%=ofertas.get(i).getId()%>">Eliminar</a></td>
+                <td><%= ofertas.get(i).getNombre()%></td>
+                <td><%= ofertas.get(i).getDescuento()%></td>
+                <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesOfertas.deleteOferta&id=<%=ofertas.get(i).getId()%>" class="myButton">Eliminar</a></td>
             </tr>
             <%}%>
-        </table>   
+        </table> 
+        <%if (usuario.getTipo().equals("Administrador")) {%>
+        <a href="/CritikalComputerEA-war/CrearOferta.jsp" href="#" class="myButton" id="izquierda">Crear Oferta</a>
+        <%}%>
+
     </body>
 </html>
