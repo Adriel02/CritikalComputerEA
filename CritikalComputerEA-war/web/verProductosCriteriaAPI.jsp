@@ -27,7 +27,6 @@
         Usuarios usuario = (Usuarios) session.getAttribute("Usuario"); %>
     <body>
         <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
-
         <table>
             <tr><th>Nombre</th><th>Precio</th><th>PrecioDescuento</th><th>Descripcion</th><th>Proveedor</th><th>Oferta</th>
                     <%if (usuario.getTipo().equals("Administrador")) {%>

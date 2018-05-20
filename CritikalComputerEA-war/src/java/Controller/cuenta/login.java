@@ -32,9 +32,7 @@ import operaciones.UsuariosFacade;
  */
 public class login extends Controller.controller {
 
-    Carrito carrito = lookupCarritoBean1();
-
-    UsuariosFacade usuariosFacade1 = lookupUsuariosFacadeBean1();
+    Carrito carrito = lookupCarritoBean();
 
     UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
 
@@ -42,11 +40,9 @@ public class login extends Controller.controller {
 
     Estadisticas estadisticas = lookupEstadisticasBean();
 
-    
-    
     @Override
     public void process() {
-        HttpSession session= request.getSession();
+        HttpSession session = request.getSession();
         Usuarios usuario = new Usuarios();
         usuario.setNombre(request.getParameter("nombre"));
         usuario.setContraseña(request.getParameter("pass"));
@@ -65,62 +61,6 @@ public class login extends Controller.controller {
         }
     }
 
-   /** @Override
-    public void process() { //HAY QUE MODIFICAR AQUI
-        HttpSession session = request.getSession(true);
-        Stateful.Carrito carrito = lookupCarritoBean();
-        /**usuario.setNombre(request.getParameter("nombre"));
-        usuario.setContraseña(request.getParameter("pass"));
-        session.setAttribute("Usuario", usuario);
-        session.setAttribute("Carrito", carrito);
-        Estadisticas.incrementarLogin();
-        System.out.println(request.getParameter("tipo"));
-        /*try {
-            if (userIsValid()) {
-                if(request.getParameter("tipo").equals("Administrador")){
-                updateSession();
-                redirect("/CritikalComputerEA-war/principalAdministrador.jsp");
-                }
-                if(request.getParameter("tipo").equals("Cliente")){
-                updateSession();
-                redirect("/CritikalComputerEA-war/Tienda.jsp");
-                }  
-            }else{
-                redirect("/CritikalComputerEA-war/index.jsp");
-            }
-        } catch (ServletException ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-            Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
-        } catch (IOException ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-            Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
-        } catch (SQLException ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    //}
-/**
-    private boolean userIsValid() throws SQLException {
-        try {
-            ResultSet resultSet = connectAndQuery();
-            if (resultSet.next()) {
-                return true;
-            }
-        } catch (SQLException e) {
-        }
-
-        return false;
-    }*/
-    public void updateSession() {
-        HttpSession session = request.getSession(true);
-        Stateful.Carrito carrito = lookupCarritoBean();
-        Usuarios usuario = new Usuarios();
-        
-        session.setAttribute("Usuario", usuario);
-        session.setAttribute("Carrito", carrito);
-        Estadisticas.incrementarLogin();
-    }
-    
-    
     private Estadisticas lookupEstadisticasBean() {
         try {
             Context c = new InitialContext();
@@ -142,17 +82,6 @@ public class login extends Controller.controller {
         }
     }
 
-    private Stateful.Carrito lookupCarritoBean() {
-        try {
-            Context c = new InitialContext();
-            return (Stateful.Carrito) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Carrito!Stateful.Carrito");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
-    }
-
-
     private UsuariosFacade lookupUsuariosFacadeBean() {
         try {
             Context c = new InitialContext();
@@ -163,17 +92,7 @@ public class login extends Controller.controller {
         }
     }
 
-    private UsuariosFacade lookupUsuariosFacadeBean1() {
-        try {
-            Context c = new InitialContext();
-            return (UsuariosFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/UsuariosFacade!operaciones.UsuariosFacade");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
-    }
-
-    private Carrito lookupCarritoBean1() {
+    private Carrito lookupCarritoBean() {
         try {
             Context c = new InitialContext();
             return (Carrito) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Carrito!Stateful.Carrito");

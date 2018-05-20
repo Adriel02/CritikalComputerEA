@@ -41,6 +41,7 @@ public class MostrarProductosCriteriaAPI extends Controller.controller {
         Map<Integer, Proveedores> proveedores = new HashMap<>();
         Map<Integer, Ofertas> ofertas = new HashMap<>();
         criterio = request.getParameter("criterio");
+        System.out.println("CRITERIO: "+criterio);
         List<Producto> productos = new ArrayList<>();
         switch (criterio) {
             case "asc":
@@ -58,19 +59,19 @@ public class MostrarProductosCriteriaAPI extends Controller.controller {
         }
         request.setAttribute("listaProductos", productos);
         for (Producto p : productos) {
-            proveedores.put(p.getProveedor(), proveedoresFacade.find(p.getProveedor()));
+            proveedores.put(p.getProveedor(),proveedoresFacade.find(p.getProveedor()));
         }
         for (Producto p : productos) {
-            ofertas.put(p.getOferta(), ofertasFacade.find(p.getOferta()));
+            ofertas.put(p.getOferta(),ofertasFacade.find(p.getOferta()));
         }
         request.setAttribute("mapaProveedores", proveedores);
         request.setAttribute("mapaOfertas", ofertas);
         try {
-            forward("/verProductosCriteriaAPI.jsp");
+            forward("/verProductos.jsp");
         } catch (ServletException ex) {
-            Logger.getLogger(MostrarProductosCriteriaAPI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(MostrarProductosCriteriaAPI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MostrarProductos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

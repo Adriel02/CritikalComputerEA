@@ -29,4 +29,5 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
         super(Usuarios.class);
     }
     
+   
 }
