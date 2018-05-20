@@ -32,8 +32,16 @@ public class MostrarUsuarios extends Controller.controller {
 
     @Override
     public void process() {
-        List<Usuarios> usuarios = usuariosFacade.findAll();
+        int indice;
+            indice = Integer.parseInt(request.getParameter("indice"));
+//        if (request.getParameter("indice") == null) {
+//            indice = 0;
+//        } else {
+//        }
+        List<Usuarios> usuarios = usuariosFacade.findRange(new int[]{indice, indice+3});
         request.setAttribute("lista", usuarios);
+        request.setAttribute("indice", indice);
+        request.setAttribute("maximo", usuariosFacade.count());
         try {
             forward("/verUsuarios.jsp");
         } catch (ServletException ex) {

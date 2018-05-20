@@ -28,6 +28,7 @@
             <li>
                 <form action="/CritikalComputerEA-war/frontServlet" method="post">
                     <input type="hidden" name="command" value="AccionesUsuario.MostrarUsuarios">
+                    <input type="hidden" name="indice" value="0">
                     <button type="submit" name="usuarios" class="myButton" > Ver Usuarios</button>
                 </form>
             </li>
