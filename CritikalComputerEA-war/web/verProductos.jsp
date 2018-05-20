@@ -45,7 +45,7 @@
                 <td><%= mapaOfertas.get(productos.get(i).getOferta()).getDescuento()%>%</td>
                 <%if (usuario.getTipo().equals("Administrador")) {%>
                 <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesProducto.deleteProducto&id=<%=productos.get(i).getId()%>" class="myButton">Eliminar</a></td>
-                <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesProducto.modificarProducto&id=<%=productos.get(i).getId()%>" class="myButton">Modificar</a></td>
+                <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesProducto.seleccionarProducto&id=<%=productos.get(i).getId()%>" class="myButton">Modificar</a></td>
                 <%} else {%>
                 <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.addCarrito&id=<%=productos.get(i).getId()%>" class="myButton">Añadir al carrito</a></td>
             </tr>

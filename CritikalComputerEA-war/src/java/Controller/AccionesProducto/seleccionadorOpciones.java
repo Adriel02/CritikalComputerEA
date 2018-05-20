@@ -50,10 +50,8 @@ public class seleccionadorOpciones extends Controller.controller {
 
     @Override
     public void process() {
-        System.out.println("HOLA DON PEPITO");
         List<Proveedores> proveedores= proveedoresFacade.findAll();
         List<Ofertas> ofertas= ofertasFacade.findAll();
-        System.out.println("HOLA DON JOSE");
         request.setAttribute("listaProveedores", proveedores);
         System.out.println(proveedores);
         System.out.println(ofertas);
