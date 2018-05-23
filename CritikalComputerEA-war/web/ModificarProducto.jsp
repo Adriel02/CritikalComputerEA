@@ -40,10 +40,10 @@
             <label for="proveedor"><b>Proveedor</b></label><br>
             <select name="proveedor" required="required">
                 <%for (int i = 0; i < proveedores.size(); i++) {
-                        if (producto.getProveedor().equals(String.valueOf(proveedores.get(i).getId()))) {%>
+                        if (producto.getProveedor()==(proveedores.get(i).getId())) {%>
                 <option value="<%=proveedores.get(i).getId()%>" selected><%=proveedores.get(i).getEmpresa()%></option>
                 <%} else {%>
-                <option value="<%=proveedores.get(i).getId()%>"><%=proveedores.get(i).getEmpresa()%></option>
+                <option value=""><%=proveedores.get(i).getEmpresa()%></option>
                 <%}%>
 
                 <%}%>
@@ -60,7 +60,7 @@
             </select><br>
             <input type="hidden" name="command" value="AccionesProducto.ModificarProducto"><br><br>
             <%%>
-            <button type="submit">Añadir</button>
+            <button type="submit">Modificar</button>
         </form>
         <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
     </body>

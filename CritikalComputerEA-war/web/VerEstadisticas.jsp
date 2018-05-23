@@ -20,7 +20,7 @@
     </head>
     <body>
         <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
-            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton" id="izquierda">Tienda</a><br>
+            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton" id="izquierda">Inicio</a><br>
             <h3>Usuarios Logeados: <%= Estadisticas.getUsuariosInicioSession()%></h3>
         <h3>Páginas visitadas.</h3>
         <% for (Map.Entry<String, Integer> entry : Estadisticas.getRegistroPagina().entrySet()) {%>

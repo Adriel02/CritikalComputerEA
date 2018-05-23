@@ -78,3 +78,8 @@ td a,a{
 #espaciadoabajo{
     padding: 0 0 20px 250px;
 }
+#table{
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}

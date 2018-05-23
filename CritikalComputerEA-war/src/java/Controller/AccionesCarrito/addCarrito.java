@@ -19,10 +19,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import models.Ofertas;
 import models.Producto;
+import operaciones.OfertasFacade;
 import operaciones.ProductoFacade;
 
 public class addCarrito extends Controller.controller {
+
 
     ProductoFacade productoFacade = lookupProductoFacadeBean();
 
@@ -32,6 +35,7 @@ public class addCarrito extends Controller.controller {
     @Override
     public void process() {
         Producto producto = productoFacade.find(Integer.parseInt(request.getParameter("id")));
+        
         carrito = (Carrito) request.getSession().getAttribute("Carrito");  //devuelve un obj y tiene que ponerlo tipo carrito.
         
         HashMap<Producto, Integer> carro = carrito.getCarrito();

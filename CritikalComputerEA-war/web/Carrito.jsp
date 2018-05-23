@@ -4,7 +4,15 @@
     Author     : Adriel
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.logging.Logger"%>
+<%@page import="java.util.logging.Level"%>
+<%@page import="javax.naming.NamingException"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="javax.naming.Context"%>
+<%@page import="operaciones.OfertasFacade"%>
 <%@page import="models.Producto"%>
+<%@page import="models.Ofertas"%>
 <%@page import="Stateful.Carrito"%>
 <%@page import="java.util.HashMap"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -32,23 +40,34 @@
                 </tr>
             <%
                 Carrito carro = (Carrito) session.getAttribute("Carrito");
-                double precioFinal=0;
+                double precioFinal = 0;
+                List<Ofertas> listaOfertas = (List<Ofertas>) request.getAttribute("listaOfertas");
+                System.out.println("fefefefe" + listaOfertas);
                 for (Producto p : carro.getCarrito().keySet()) {%>
             <tr>
                 <td id="stilo2" style="width: 20%;text-align: center;"><%= p.getNombre()%></td>
                 <td><%=carro.getCarrito().get(p)%></td>
-                <td><%= p.getPrecio()%>€</td>
-                <td><%= p.getPrecio() * carro.getCarrito().get(p)%>€</td>
+                <% for (int i = 0; i < listaOfertas.size(); i++) {
+                        if (p.getOferta() == listaOfertas.get(i).getId()) {%>
+                <td><%=(p.getPrecio() - (p.getPrecio() * (listaOfertas.get(i).getDescuento()) / 100))%>€</td>
+
+                <td><%= (p.getPrecio() - (p.getPrecio() * (listaOfertas.get(i).getDescuento()) / 100)) * carro.getCarrito().get(p)%>€</td>
+                <%}%>
+                <%}%>
                 <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.EliminarProducto&id=<%=p.getId()%>" id="stilo1">Eliminar</a></td>
             </tr>
             <%}%>
         </table>
-        <%for (Producto p : carro.getCarrito().keySet()) {
-            precioFinal+=p.getPrecio()*carro.getCarrito().get(p);
+        <% for (int i = 0; i < listaOfertas.size(); i++) {
+                for (Producto p : carro.getCarrito().keySet()) {
+                    if (p.getOferta() == listaOfertas.get(i).getId()) {
+                        precioFinal += (p.getPrecio() - (p.getPrecio() * (listaOfertas.get(i).getDescuento()) / 100)) * carro.getCarrito().get(p);
         %>
-        <%} %>
+        <%}
+                }
+            }%>
         <h3>Precio Total a pagar: <%= precioFinal%>€</h3>
-        
+
         <%if (carro.getCarrito().isEmpty() == false) {%>
         <a  href = "/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.EliminarTodo" href = "#" class="myButton" id = "izquierda" > Vaciar Carrito</a >
         <%}%>
@@ -59,6 +78,6 @@
             </div>
         </form><br><br>
         <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
-
     </body>
 </html>
+

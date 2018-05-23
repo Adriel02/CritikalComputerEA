@@ -5,8 +5,6 @@
  */
 package Controller.AccionesCarrito;
 
-import Singletons.Log;
-import Stateful.Carrito;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,46 +20,20 @@ import operaciones.OfertasFacade;
  *
  * @author Adriel
  */
-public class EliminarTodo extends Controller.controller {
+public class carrito extends Controller.controller{
 
     OfertasFacade ofertasFacade = lookupOfertasFacadeBean();
 
-    Carrito carrito = lookupCarritoBean();
-
-    Log log = lookupLogBean();
-
     @Override
     public void process() {
-        request.getSession().setAttribute("Carrito",carrito);
         List<Ofertas> listaOfertas = ofertasFacade.findAll();
         request.setAttribute("listaOfertas", listaOfertas);
         try {
             forward("/Carrito.jsp");
-        } catch (ServletException ex) {
-            Logger.getLogger(EliminarTodo.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ServletException ex) {
+            Logger.getLogger(carrito.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(EliminarTodo.class.getName()).log(Level.SEVERE, null, ex);
-            Log.guardarExcepcion(ex.getMessage()); //Guardar en mi log
-        }
-    }
-
-    private Log lookupLogBean() {
-        try {
-            Context c = new InitialContext();
-            return (Log) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Log!Singletons.Log");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
-        }
-    }
-
-    private Carrito lookupCarritoBean() {
-        try {
-            Context c = new InitialContext();
-            return (Carrito) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Carrito!Stateful.Carrito");
-        } catch (NamingException ne) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-            throw new RuntimeException(ne);
+            Logger.getLogger(carrito.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

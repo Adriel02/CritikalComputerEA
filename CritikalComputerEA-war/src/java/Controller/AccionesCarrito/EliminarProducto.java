@@ -10,13 +10,16 @@ import Singletons.Log;
 import Stateful.Carrito;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
+import models.Ofertas;
 import models.Producto;
+import operaciones.OfertasFacade;
 import operaciones.ProductoFacade;
 
 /**
@@ -24,6 +27,8 @@ import operaciones.ProductoFacade;
  * @author Adriel
  */
 public class EliminarProducto extends Controller.controller {
+
+    OfertasFacade ofertasFacade = lookupOfertasFacadeBean();
 
 
     Carrito carrito = lookupCarritoBean();
@@ -48,8 +53,10 @@ public class EliminarProducto extends Controller.controller {
             
         carrito.setCarrito(carro);
         request.getSession().setAttribute("Carrito", carrito);
+        List<Ofertas> listaOfertas = ofertasFacade.findAll();
+        request.setAttribute("listaOfertas", listaOfertas);
         try {
-            redirect("/CritikalComputerEA-war/Carrito.jsp");
+            forward("/Carrito.jsp");
         } catch (ServletException ex) {
             Logger.getLogger(addCarrito.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -73,6 +80,16 @@ public class EliminarProducto extends Controller.controller {
         try {
             Context c = new InitialContext();
             return (Carrito) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/Carrito!Stateful.Carrito");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+
+    private OfertasFacade lookupOfertasFacadeBean() {
+        try {
+            Context c = new InitialContext();
+            return (OfertasFacade) c.lookup("java:global/CritikalComputerEA/CritikalComputerEA-ejb/OfertasFacade!operaciones.OfertasFacade");
         } catch (NamingException ne) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
             throw new RuntimeException(ne);

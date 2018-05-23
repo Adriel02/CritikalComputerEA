@@ -9,7 +9,7 @@
 
     </head>
     <body>
-        
+
         <%Usuarios usuario = (Usuarios) session.getAttribute("Usuario");%>
         <form action="/CritikalComputerEA-war/frontServlet" method="post">
             <div class="salir">
@@ -18,12 +18,10 @@
             </div>
         </form>
         <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
-        <a href="/CritikalComputerEA-war/Log.jsp" href="#" class="myButton" id="izquierda">Log</a>
-        <a href="/CritikalComputerEA-war/VerEstadisticas.jsp" href="#" class="myButton" id="izquierda">Ver Estadisticas</a>
-        <a href="/CritikalComputerEA-war/Carrito.jsp" href="#" class="myButton" id="izquierda">Ver Carrito</a>
-        <br>
-        <%if (usuario.getTipo().equals("Administrador")) {%>
-        <%}%>
+            <a href="/CritikalComputerEA-war/Log.jsp" href="#" class="myButton" id="izquierda">Log</a>
+            <a href="/CritikalComputerEA-war/VerEstadisticas.jsp" href="#" class="myButton" id="izquierda">Ver Estadisticas</a>
+            <br>
+        
         <ul id="listaPrincipal">
             <h4>Elija una opción:</h4>
             <%if (usuario.getTipo().equals("Administrador")) {%>
@@ -82,7 +80,7 @@
             </li>
         </ul>
 
-            <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
 
     </body>
 </html>

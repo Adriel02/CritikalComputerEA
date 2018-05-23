@@ -27,10 +27,10 @@
         Usuarios usuario = (Usuarios) session.getAttribute("Usuario"); %>
     <body>
         <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
-        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
 
-        <table>
-            <tr><th>Nombre</th><th>Precio</th><th>PrecioDescuento</th><th>Descripcion</th><th>Proveedor</th><th>Oferta</th>
+            <table id="table">
+                <tr><th>Nombre</th><th>Precio</th><th>PrecioDescuento</th><th>Descripcion</th><th>Proveedor</th><th>Oferta</th>
                     <%if (usuario.getTipo().equals("Administrador")) {%>
                 <th>Eliminar</th><th>Modificar</th><th>Imagen</th></tr>
                     <%} else {%>
@@ -50,12 +50,16 @@
             <%} else {%>
             <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.addCarrito&id=<%=productos.get(i).getId()%>" class="myButton">Añadir al carrito</a></td>
             <%}%>
-            <td><img src="C:\Users\Adriel\Documents\Final Trabajo MDA\Final AS\CritikalComputerEA/<%= productos.get(i).getImagen() %>.png" width="150" height="150"></td>
+            <td><img src="C:\Users\Adriel\Documents\Final Trabajo MDA\Final AS\CritikalComputerEA/<%= productos.get(i).getImagen()%>.png" width="150" height="150"></td>
         </tr>
         <%}%>
     </table> 
     <%if (usuario.getTipo().equals("Administrador")) {%>
     <a href="/CritikalComputerEA-war/frontServlet?command=AccionesProducto.seleccionadorOpciones" href="#" class="myButton" id="izquierda">Crear Producto</a><br>
+    <%} %>
+    <%if (usuario.getTipo().equals("Cliente")) {%>
+    <!--<a href="/CritikalComputerEA-war/Carrito.jsp" class="myButton" id="izquierda">Ver Carrito</a>-->
+    <a href="/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.carrito" class="myButton" id="izquierda">Carrito</a>
     <%}%>
     <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
 </body>

@@ -57,8 +57,11 @@ public class MostrarProductos extends Controller.controller {
         for (Producto p : productos) {
             ofertas.put(p.getOferta(),ofertasFacade.find(p.getOferta()));
         }
+        List<Ofertas> listaOfertas= ofertasFacade.findAll();
         request.setAttribute("mapaProveedores", proveedores);
         request.setAttribute("mapaOfertas", ofertas);
+        request.setAttribute("listaOfertas", listaOfertas);
+        System.out.println("listaofertas-->"+listaOfertas);
         
         System.out.println(productos);
         try {
