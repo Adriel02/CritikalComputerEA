@@ -57,7 +57,7 @@
                 <input type="hidden" name="command" value="cuenta.CompraCommand">            
                 <button type="submit" href = "#" class="myButton" id = "derecha" > Comprar</button>
             </div>
-        </form>
+        </form><br><br>
         <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
 
     </body>

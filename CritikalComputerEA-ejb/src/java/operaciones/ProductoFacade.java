@@ -33,12 +33,13 @@ public class ProductoFacade extends AbstractFacade<Producto> {
         super(Producto.class);
     }
      public void crearProducto(Producto producto){
-        String query= "INSERT INTO PRODUCTO(nombre,precio,descripcion,proveedor,oferta) VALUES (?,?,?,?,?)";
+        String query= "INSERT INTO PRODUCTO(nombre,precio,descripcion,proveedor,oferta,imagen) VALUES (?,?,?,?,?,?)";
         em.createNativeQuery(query).setParameter(1, producto.getNombre()).
                               setParameter(2, producto.getPrecio()).
                               setParameter(3, producto.getDescripcion()).
                               setParameter(4, producto.getProveedor()).
-                              setParameter(5, producto.getOferta()).executeUpdate();
+                              setParameter(5, producto.getOferta()).
+                              setParameter(6, producto.getImagen()).executeUpdate();
     }
     public List<Producto> verProductos(){
         String query="SELECT p FROM Producto p ORDER BY p.precio ASC";

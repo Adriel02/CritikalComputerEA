@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Producto.findByDescripcion", query = "SELECT p FROM Producto p WHERE p.descripcion = :descripcion")
     , @NamedQuery(name = "Producto.findByPrecio", query = "SELECT p FROM Producto p WHERE p.precio = :precio")
     , @NamedQuery(name = "Producto.findByProveedor", query = "SELECT p FROM Producto p WHERE p.proveedor = :proveedor")
-    , @NamedQuery(name = "Producto.findByOferta", query = "SELECT p FROM Producto p WHERE p.oferta = :oferta")})
+    , @NamedQuery(name = "Producto.findByOferta", query = "SELECT p FROM Producto p WHERE p.oferta = :oferta")
+    , @NamedQuery(name = "Producto.findByImagen", query = "SELECT p FROM Producto p WHERE p.imagen = :imagen")})
 public class Producto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,7 +45,7 @@ public class Producto implements Serializable {
     @Size(max = 50)
     @Column(name = "NOMBRE")
     private String nombre;
-    @Size(max = 50)
+    @Size(max = 250)
     @Column(name = "DESCRIPCION")
     private String descripcion;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -54,6 +55,9 @@ public class Producto implements Serializable {
     private Integer proveedor;
     @Column(name = "OFERTA")
     private Integer oferta;
+    @Size(max = 250)
+    @Column(name = "IMAGEN")
+    private String imagen;
 
     public Producto() {
     }
@@ -108,6 +112,14 @@ public class Producto implements Serializable {
 
     public void setOferta(Integer oferta) {
         this.oferta = oferta;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     @Override

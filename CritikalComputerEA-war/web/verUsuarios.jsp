@@ -20,7 +20,7 @@
         <title>CritikalComputer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Recursos/loginCss.css">
+        <link rel="stylesheet" href="Recursos/FondoCss.css">
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
     <%  UsuariosFacade usuariosFacade = lookupUsuariosFacadeBean();
@@ -30,9 +30,11 @@
         int maximo = usuariosFacade.count();
     %>
     <body>
-        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
-        <table>
-            <tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Tipo</th><th>Eliminar</th></tr>
+        <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
+
+            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+            <table>
+                <tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Tipo</th><th>Eliminar</th></tr>
                     <% for (int i = 0; i < usuarios.size(); i++) {%>
             <tr>
                 <td><%= usuarios.get(i).getId()%></td>
@@ -45,20 +47,21 @@
         </table> 
 
         <div id="espaciadoabajo">
-        <a href="/CritikalComputerEA-war/frontServlet?command=AccionesUsuario.MostrarUsuarios&indice=0" class="myButton"><<</a>
-        <a href="/CritikalComputerEA-war/frontServlet?command=AccionesUsuario.MostrarUsuarios&indice=<%= minusTen(indice)%>" class="myButton"><</a>
-        <a href="/CritikalComputerEA-war/frontServlet?command=AccionesUsuario.MostrarUsuarios&indice=<%= plusTen(indice, maximo)%>" class="myButton">></a>
-        <a href="/CritikalComputerEA-war/frontServlet?command=AccionesUsuario.MostrarUsuarios&indice=<%=maximo - 3%>" class="myButton">>></a>
+            <a href="/CritikalComputerEA-war/frontServlet?command=AccionesUsuario.MostrarUsuarios&indice=0" class="myButton"><<</a>
+            <a href="/CritikalComputerEA-war/frontServlet?command=AccionesUsuario.MostrarUsuarios&indice=<%= menos3(indice)%>" class="myButton"><</a>
+            <a href="/CritikalComputerEA-war/frontServlet?command=AccionesUsuario.MostrarUsuarios&indice=<%= mas3(indice, maximo)%>" class="myButton">></a>
+            <a href="/CritikalComputerEA-war/frontServlet?command=AccionesUsuario.MostrarUsuarios&indice=<%=maximo - 3%>" class="myButton">>></a>
         </div>
         <br>
         <%if (usuario.getTipo().equals("Administrador")) {%>
-        <a href="/CritikalComputerEA-war/CrearUsuario.jsp" href="#" class="myButton" id="izquierda" class="myButton">Crear Usuario</a>
+        <a href="/CritikalComputerEA-war/CrearUsuario.jsp" href="#" class="myButton" id="izquierda" class="myButton">Crear Usuario</a><br>
         <%}%>
+        <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
     </body>
 </html>
 
 <%!
-    public static int minusTen(int indice) {
+    public static int menos3(int indice) {
         int nuevoIndice = indice - 3;
         if (nuevoIndice < 0) {
             return 0;
@@ -66,7 +69,7 @@
         return nuevoIndice;
     }
 
-    public static int plusTen(int indice, int max) {
+    public static int mas3(int indice, int max) {
         int nuevoIndice = indice + 3;
         if (nuevoIndice > (max - 3)) {
             return (max - 3);

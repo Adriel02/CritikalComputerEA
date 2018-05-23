@@ -32,6 +32,7 @@ public class addProducto extends Controller.controller{
         producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
         producto.setOferta(Integer.parseInt(request.getParameter("oferta")));
         producto.setProveedor(Integer.parseInt(request.getParameter("proveedor")));
+        producto.setImagen(request.getParameter("img"));
         productoFacade.crearProducto(producto);
         try {
             forward("/principalAdministrador.jsp");

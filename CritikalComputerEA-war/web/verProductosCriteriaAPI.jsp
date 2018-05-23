@@ -18,7 +18,7 @@
         <title>CritikalComputer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Recursos/loginCss.css">
+        <link rel="stylesheet" href="Recursos/FondoCss.css">
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
     <% List<Producto> productos = (List<Producto>) request.getAttribute("listaProductos");
@@ -26,9 +26,11 @@
         HashMap<Integer, Ofertas> mapaOfertas = (HashMap<Integer, Ofertas>) request.getAttribute("mapaOfertas");
         Usuarios usuario = (Usuarios) session.getAttribute("Usuario"); %>
     <body>
-        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
-        <table>
-            <tr><th>Nombre</th><th>Precio</th><th>PrecioDescuento</th><th>Descripcion</th><th>Proveedor</th><th>Oferta</th>
+        <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
+
+            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+            <table>
+                <tr><th>Nombre</th><th>Precio</th><th>PrecioDescuento</th><th>Descripcion</th><th>Proveedor</th><th>Oferta</th>
                     <%if (usuario.getTipo().equals("Administrador")) {%>
                 <th>Eliminar</th><th>Modificar</th></tr>
                     <%} else {%>
@@ -49,6 +51,7 @@
         </tr>
         <%}%>
         <%}%>
-    </table>   
+    </table>  
+    <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
 </body>
 </html>

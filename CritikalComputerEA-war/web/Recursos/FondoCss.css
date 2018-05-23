@@ -65,19 +65,14 @@ a{
     width: 500px;
     height: 500px;
 }
-
 header{
     text-align: center;
     font-family: 'Indie Flower', cursive;
 }
 footer {
-    position: absolute;
     font-size: smaller;
     right: 0;
     left: 0;
-    background-color:burlywood ;
     text-align: center;
-}
-#footer{
-    bottom: 0;
+    bottom:0;
 }

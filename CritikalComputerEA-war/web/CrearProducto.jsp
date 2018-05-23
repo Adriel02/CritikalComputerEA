@@ -14,24 +14,27 @@
         <title>CritikalComputer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Recursos/loginCss.css">
+        <link rel="stylesheet" href="Recursos/FondoCss.css">
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
     <% List<Proveedores> proveedores = (List<Proveedores>) request.getAttribute("listaProveedores"); %>
     <% List<Ofertas> ofertas = (List<Ofertas>) request.getAttribute("listaOfertas"); %>
     <body>
-        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+        <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
 
-        <form action="/CritikalComputerEA-war/frontServlet" method="POST">
-            <input type="hidden" name="command" value="AccionesProducto.addProducto">
-            <label for="Nombre"><b>Nombre</b></label>
-            <input type="text" placeholder="Nombre" name="nombre" required>
-            <label for="precio"><b>Precio</b></label>
-            <input type="text" placeholder="Precio" name="precio" required>
-            <label for="descripcion"><b>Descripcion</b></label><br>
-            <textarea name="descripcion" rows="4" cols="30"></textarea><br>
-            <label for="proveedor"><b>Proveedor</b></label><br>
-            <select name="proveedor" required="required">
+            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
+            <form action="/CritikalComputerEA-war/frontServlet" method="POST">
+                <label for="Nombre"><b>Nombre</b></label>
+                <input type="text" placeholder="Nombre" name="nombre" required>
+                <label for="precio"><b>Precio</b></label>
+                <input type="text" placeholder="Precio" name="precio" required>
+                <label for="descripcion"><b>Descripcion</b></label><br>
+                <textarea name="descripcion" rows="4" cols="30"></textarea><br>
+                <label for="img"><b>Imagen</b></label>
+                <input type="text" placeholder="Imagen" name="img">
+                <label for="proveedor"><b>Proveedor</b></label><br>
+                <select name="proveedor" required="required">
                 <%for (int i = 0; i < proveedores.size(); i++) {%>
                 <option value="<%=proveedores.get(i).getId()%>"><%=proveedores.get(i).getEmpresa()%></option>
                 <%}%>
@@ -45,5 +48,6 @@
             <input type="hidden" name="command" value="AccionesProducto.addProducto"><br><br>
             <button type="submit">Añadir</button>
         </form>
+            <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
     </body>
 </html>

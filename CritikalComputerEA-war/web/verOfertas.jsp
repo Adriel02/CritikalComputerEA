@@ -15,16 +15,18 @@
         <title>CritikalComputer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Recursos/loginCss.css">
+        <link rel="stylesheet" href="Recursos/FondoCss.css">
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
     <%List<Ofertas> ofertas = (List<Ofertas>) request.getAttribute("listaOfertas");
         Usuarios usuario = (Usuarios) session.getAttribute("Usuario");%>
     <body>
-        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+        <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
 
-        <table>
-            <tr><th>Nombre</th><th>Descuento</th><th>Eliminar</th></tr>
+            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
+            <table>
+                <tr><th>Nombre</th><th>Descuento</th><th>Eliminar</th></tr>
                     <% for (int i = 0; i < ofertas.size(); i++) {%>
             <tr>
                 <td><%= ofertas.get(i).getNombre()%></td>
@@ -34,8 +36,8 @@
             <%}%>
         </table> 
         <%if (usuario.getTipo().equals("Administrador")) {%>
-        <a href="/CritikalComputerEA-war/CrearOferta.jsp" href="#" class="myButton" id="izquierda">Crear Oferta</a>
+        <a href="/CritikalComputerEA-war/CrearOferta.jsp" href="#" class="myButton" id="izquierda">Crear Oferta</a><br>
         <%}%>
-
+        <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
     </body>
 </html>

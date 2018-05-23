@@ -15,24 +15,27 @@
         <title>CritikalComputer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Recursos/loginCss.css">
+        <link rel="stylesheet" href="Recursos/FondoCss.css">
         <link rel="stylesheet" href="Recursos/newcss.css">
     </head>
     <%List<Ventas> ventas = (List<Ventas>) request.getAttribute("listaVentas");
         Usuarios usuario = (Usuarios) session.getAttribute("Usuario");%>
     <body>
-        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+        <jsp:include page="/WEB-INF/Parciales/Cabecera.jsp"></jsp:include>
 
-        <table>
-            <tr><th>Usuario</th><th>Fecha</th><th>Precio Final</th><th>Eliminar</th></tr>
+            <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton">Inicio</a>
+
+            <table>
+                <tr><th>Usuario</th><th>Fecha</th><th>Precio Final</th><th>Eliminar</th></tr>
                     <% for (int i = 0; i < ventas.size(); i++) {%>
             <tr>
                 <td><%= ventas.get(i).getUsuario()%></td>
                 <td><%= ventas.get(i).getFecha()%></td>
-                <td><%= ventas.get(i).getPreciototal() %> €</td>
+                <td><%= ventas.get(i).getPreciototal()%> €</td>
                 <td><a href="/CritikalComputerEA-war/frontServlet?command=AccionesVentas.deleteVenta&id=<%=ventas.get(i).getId()%>" class="myButton">Eliminar</a></td>
             </tr>
             <%}%>
         </table> 
+        <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
     </body>
 </html>
