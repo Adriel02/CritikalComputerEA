@@ -46,13 +46,14 @@ public class ProductoFacade extends AbstractFacade<Producto> {
         return em.createQuery(query).getResultList();
     }
     public void modificarProducto(Producto producto){
-        String query="UPDATE Producto set nombre=:nombre,precio=:precio,descripcion=:descripcion,proveedor=:proveedor,oferta=:oferta where id=:id";
+        String query="UPDATE Producto set nombre=:nombre,precio=:precio,descripcion=:descripcion,proveedor=:proveedor,oferta=:oferta,imagen=:imagen where id=:id";
         em.createQuery(query).setParameter("nombre",producto.getNombre()).
                 setParameter("precio", producto.getPrecio()).
                 setParameter("descripcion", producto.getDescripcion()).
                 setParameter("proveedor", producto.getProveedor()).
                 setParameter("oferta", producto.getOferta()).
-                setParameter("id", producto.getId()).executeUpdate();
+                setParameter("id", producto.getId()).
+                setParameter("imagen", producto.getImagen()).executeUpdate();
     }
     public void eliminarProducto(Producto producto){
         String query= "DELETE FROM Producto p where p.id=:id";

@@ -39,6 +39,7 @@ public class ModificarProducto extends Controller.controller {
         producto.setPrecio(Double.parseDouble(request.getParameter("precio")));
         producto.setOferta(Integer.parseInt(request.getParameter("oferta")));
         producto.setProveedor(Integer.parseInt(request.getParameter("proveedor")));
+        producto.setImagen(request.getParameter("img"));
         productoFacade.modificarProducto(producto);
         try {
             forward("/principalAdministrador.jsp");

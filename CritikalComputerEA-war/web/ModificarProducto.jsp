@@ -35,6 +35,8 @@
             <input type="text" placeholder="Precio" name="precio" required value="<%= producto.getPrecio()%>">
             <label for="descripcion"><b>Descripcion</b></label><br>
             <textarea name="descripcion" rows="6" cols="30"><%= producto.getDescripcion()%></textarea><br>
+            <label for="img"><b>Imagen</b></label>
+            <input type="text" placeholder="Imagen" name="img" value="<%=producto.getImagen()%>" ><br>
             <label for="proveedor"><b>Proveedor</b></label><br>
             <select name="proveedor" required="required">
                 <%for (int i = 0; i < proveedores.size(); i++) {
@@ -60,6 +62,6 @@
             <%%>
             <button type="submit">Añadir</button>
         </form>
-            <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
     </body>
 </html>
