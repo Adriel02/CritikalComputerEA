@@ -70,13 +70,13 @@
 
         <%if (carro.getCarrito().isEmpty() == false) {%>
         <a  href = "/CritikalComputerEA-war/frontServlet?command=AccionesCarrito.EliminarTodo" href = "#" class="myButton" id = "izquierda" > Vaciar Carrito</a >
-        <%}%>
         <form action="/CritikalComputerEA-war/frontServlet" method="post">
             <div class="CompraCommand">
                 <input type="hidden" name="command" value="cuenta.CompraCommand">            
                 <button type="submit" href = "#" class="myButton" id = "derecha" > Comprar</button>
             </div>
         </form><br><br>
+        <%}%>
         <jsp:include page="/WEB-INF/Parciales/PieDePagina.jsp"></jsp:include>
     </body>
 </html>

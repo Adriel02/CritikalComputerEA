@@ -84,5 +84,9 @@ public class ProductoFacade extends AbstractFacade<Producto> {
        return em.createQuery(query).getResultList();
    } 
    
+   public List<Producto> buscarProducto(String nombre){
+        String query="SELECT p FROM Producto p where p.nombre LIKE :nombre";
+        return em.createQuery(query).setParameter("nombre", "%"+nombre+"%").getResultList();
+    }
    
 }

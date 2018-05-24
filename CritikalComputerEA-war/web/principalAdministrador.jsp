@@ -21,6 +21,7 @@
             <a href="/CritikalComputerEA-war/Log.jsp" href="#" class="myButton" id="izquierda">Log</a>
             <a href="/CritikalComputerEA-war/VerEstadisticas.jsp" href="#" class="myButton" id="izquierda">Ver Estadisticas</a>
             <br>
+            <a href="/CritikalComputerEA-war/buscador.jsp" href="#" class="myButton" id="izquierda">Buscar</a><br>
         
         <ul id="listaPrincipal">
             <h4>Elija una opción:</h4>

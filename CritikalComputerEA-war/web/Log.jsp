@@ -17,7 +17,7 @@
         <title>Critikal Computer</title>
     </head>
     <body>
-        <a href="/CritikalComputerEA-war/Tienda.jsp" href="#" class="myButton" id="izquierda">Tienda</a><br>
+        <a href="/CritikalComputerEA-war/principalAdministrador.jsp" href="#" class="myButton" id="izquierda">Tienda</a><br>
             
         <%= Log.leerLog()%>
     </body>
